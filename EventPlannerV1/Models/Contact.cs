@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace EventPlannerV1.Models
 {
-    public class User
+    public class Contact
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
+        public int ContactId { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public String Username { get; set; }
         [Required]
         [MaxLength(200)]
         public String Name { get; set; }
-        [Required]
+        [MaxLength(100)]
+        [DataType(DataType.EmailAddress)]
+        public String Email { get; set; }
+        [MaxLength(200)]
+        public String Address { get; set; }
         [MaxLength(50)]
-        [DataType(DataType.Password)]
-        public String Password { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public String TelNo { get; set; }
+        [MaxLength(500)]
+        public String Note { get; set; }
 
-        //[DataType(DataType.Password)]
-        //[Compare("Password")]
-        //[NotMapped]
-        //public string ConfirmPassword { get; set; }
+        public User User { get; set; }
+
     }
 }

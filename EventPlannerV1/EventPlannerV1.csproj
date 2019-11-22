@@ -65,6 +65,23 @@
     <Compile Include="LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911220414233_InitialCreate.cs" />
+    <Compile Include="Migrations\201911220414233_InitialCreate.Designer.cs">
+      <DependentUpon>201911220414233_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911220941195_EventPlanner.cs" />
+    <Compile Include="Migrations\201911220941195_EventPlanner.Designer.cs">
+      <DependentUpon>201911220941195_EventPlanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911221107436_EventInheritanceFix.cs" />
+    <Compile Include="Migrations\201911221107436_EventInheritanceFix.Designer.cs">
+      <DependentUpon>201911221107436_EventInheritanceFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +93,15 @@
     </Compile>
     <EmbeddedResource Include="LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911220414233_InitialCreate.resx">
+      <DependentUpon>201911220414233_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911220941195_EventPlanner.resx">
+      <DependentUpon>201911220941195_EventPlanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911221107436_EventInheritanceFix.resx">
+      <DependentUpon>201911221107436_EventInheritanceFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
