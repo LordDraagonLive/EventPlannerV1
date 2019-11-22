@@ -71,14 +71,14 @@
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.PasswordChar = '*';
             this.passwordTxt.Size = new System.Drawing.Size(209, 20);
-            this.passwordTxt.TabIndex = 11;
+            this.passwordTxt.TabIndex = 3;
             // 
             // usernameTxt
             // 
             this.usernameTxt.Location = new System.Drawing.Point(322, 162);
             this.usernameTxt.Name = "usernameTxt";
             this.usernameTxt.Size = new System.Drawing.Size(209, 20);
-            this.usernameTxt.TabIndex = 10;
+            this.usernameTxt.TabIndex = 2;
             // 
             // label1
             // 
@@ -126,7 +126,7 @@
             this.nameTxt.Location = new System.Drawing.Point(322, 110);
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(209, 20);
-            this.nameTxt.TabIndex = 14;
+            this.nameTxt.TabIndex = 1;
             // 
             // label5
             // 
@@ -143,14 +143,14 @@
             this.confirmTxt.Name = "confirmTxt";
             this.confirmTxt.PasswordChar = '*';
             this.confirmTxt.Size = new System.Drawing.Size(209, 20);
-            this.confirmTxt.TabIndex = 16;
+            this.confirmTxt.TabIndex = 4;
             // 
             // RegisterBtn
             // 
             this.RegisterBtn.Location = new System.Drawing.Point(322, 319);
             this.RegisterBtn.Name = "RegisterBtn";
             this.RegisterBtn.Size = new System.Drawing.Size(208, 47);
-            this.RegisterBtn.TabIndex = 18;
+            this.RegisterBtn.TabIndex = 5;
             this.RegisterBtn.Text = "Register";
             this.RegisterBtn.UseVisualStyleBackColor = true;
             this.RegisterBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
@@ -170,7 +170,7 @@
             this.LoginLink.Location = new System.Drawing.Point(471, 393);
             this.LoginLink.Name = "LoginLink";
             this.LoginLink.Size = new System.Drawing.Size(37, 13);
-            this.LoginLink.TabIndex = 20;
+            this.LoginLink.TabIndex = 6;
             this.LoginLink.TabStop = true;
             this.LoginLink.Text = "Log In";
             this.LoginLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LoginLink_LinkClicked);

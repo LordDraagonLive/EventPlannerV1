@@ -14,10 +14,13 @@ namespace EventPlannerV1.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         [Required]
+        [MaxLength(50)]
         public String Username { get; set; }
         [Required]
+        [MaxLength(200)]
         public String Name { get; set; }
         [Required]
+        [MaxLength(50)]
         [DataType(DataType.Password)]
         public String Password { get; set; }
 

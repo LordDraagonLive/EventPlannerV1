@@ -48,7 +48,21 @@ namespace EventPlannerV1
             String password = passwordTxt.Text.ToString();
             String confirmPassword = confirmTxt.Text.ToString();
 
-            RegisterUser(fullName, username,password, confirmPassword);
+            RegisterStatus statusMsg = RegisterUser(fullName, username,password, confirmPassword);
+
+            if (statusMsg.Error == true)
+            {
+                MessageBox.Show(statusMsg.Message,"Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                nameTxt.Focus();
+            }
+            else
+            {
+                MessageBox.Show(statusMsg.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoginView loginView = new LoginView();
+                this.Hide();
+                loginView.Show();
+            }
+
 
         }
 
@@ -67,25 +81,101 @@ namespace EventPlannerV1
             return false;
         }
 
-        private bool RegisterUser(String fullName, String username, String password, String confirmPassword)
+        /// <summary>
+        /// Adds user provided data to the database using the db context
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="confirmPassword"></param>
+        /// <returns></returns>
+        private RegisterStatus RegisterUser(String fullName, String username, String password, String confirmPassword)
         {
-            using (var db = new EventContext())
+            RegisterStatus registerStatus;
+
+            if (String.IsNullOrWhiteSpace(fullName) || String.IsNullOrWhiteSpace(username) || String.IsNullOrWhiteSpace(password) || String.IsNullOrWhiteSpace(confirmPassword))
             {
-
-                var user = new User { Name = fullName, Username = username, Password = password };
-                db.Users.Add(user);
-                db.SaveChanges();
-
-
-                var query = from u in db.Users orderby u.Name select u;
-                foreach (var item in query)
+                registerStatus = new RegisterStatus()
                 {
-                    Console.WriteLine(item.Name);
-                }
-
+                    Message = "Required fields are empty!",
+                    Error = true
+                };
+                return registerStatus;
             }
 
-            return false;
+            using (var db = new EventContext())
+            {
+                if (!IsPasswordEqual(password, confirmPassword))
+                {
+                    registerStatus = new RegisterStatus()
+                    {
+                        Message = "Passwords doesn't match!",
+                        Error = true
+                    };
+                    return registerStatus;
+                }
+
+                // Get all users in db and validate
+                var allUsersQuery = from users in db.Users orderby users.Name select users;
+
+                foreach (var reguser in allUsersQuery)
+                {
+                    if (reguser.Username.Equals(username))
+                    {
+                        registerStatus = new RegisterStatus()
+                        {
+                            Message = "Username already exists!",
+                            Error = true
+                        };
+                        return registerStatus;
+                    }
+                    else if (!(fullName.Length>=3 && password.Length>= 3))
+                    {
+                        registerStatus = new RegisterStatus()
+                        {
+                            Message = "Username and Password size must be more than 2 characters",
+                            Error = true
+                        };
+                        return registerStatus;
+                    }
+                }
+
+                // Add new user to db
+                var newUser = new User { Name = fullName, Username = username, Password = password };
+                db.Users.Add(newUser);
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    registerStatus = new RegisterStatus()
+                    {
+                        Message = "Internal Database Error!",
+                        Error = true
+                    };
+                    return registerStatus;
+                }
+
+                registerStatus = new RegisterStatus()
+                {
+                    Message = "User registration successful!",
+                    Error = false
+                };
+                return registerStatus;
+            }
+        }
+
+        /// <summary>
+        /// Simple Struct to hold status messages
+        /// </summary>
+        struct RegisterStatus
+        {
+            public String Message;
+            public bool Error;
+
         }
     }
 }

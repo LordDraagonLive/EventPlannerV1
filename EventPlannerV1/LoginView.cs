@@ -20,30 +20,47 @@ namespace EventPlannerV1
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            AddUserTest(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
+            int LoginStatus = CheckLogin(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
 
+            if (LoginStatus == 1)
+            {
+                MessageBox.Show("Login Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoginView loginView = new LoginView();
+                this.Hide();
+                loginView.Show();
+            }
+            else if(LoginStatus == 2)
+            {
+                MessageBox.Show("Login Failed! Please Check username and password", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                usernameTxt.Focus();
+            }
+            else if (LoginStatus == 0)
+            {
+                MessageBox.Show("Username and Password cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                usernameTxt.Focus();
+            }
         }
 
-        private String AddUserTest(String username, String password)
+        private int CheckLogin(String username, String password)
         {
+            if (String.IsNullOrWhiteSpace(username) || String.IsNullOrWhiteSpace(password))
+            {
+                return 0;
+            }
 
             using (var db = new EventContext())
             {
-                String name = "John";
+                var allUsers = from users in db.Users orderby users.Name select users;
 
-                var user = new User { Name = name, Username = username, Password = password };
-                db.Users.Add(user);
-                db.SaveChanges();
-
-
-                var query = from u in db.Users orderby u.Name select u;
-                foreach (var item in query)
+                foreach (var user in allUsers)
                 {
-                    Console.WriteLine(item.Name);
+                    if (user.Username.Equals(username) && user.Password.Equals(password))
+                    {
+                        return 1;
+                    }
                 }
-
             }
-            return "Successs";
+            return 2;
         }
 
         private void NewAcctLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
