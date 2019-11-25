@@ -58,6 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddContactView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddContactView.Designer.cs">
+      <DependentUpon>AddContactView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContactsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactsView.Designer.cs">
+      <DependentUpon>ContactsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventContext.cs" />
     <Compile Include="LoginView.cs">
       <SubType>Form</SubType>
@@ -77,12 +89,22 @@
     <Compile Include="Migrations\201911221107436_EventInheritanceFix.Designer.cs">
       <DependentUpon>201911221107436_EventInheritanceFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911250611202_ContactModelFK.cs" />
+    <Compile Include="Migrations\201911250611202_ContactModelFK.Designer.cs">
+      <DependentUpon>201911250611202_ContactModelFK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Overview.Designer.cs">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterView.cs">
@@ -91,6 +113,12 @@
     <Compile Include="RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddContactView.resx">
+      <DependentUpon>AddContactView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactsView.resx">
+      <DependentUpon>ContactsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +130,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911221107436_EventInheritanceFix.resx">
       <DependentUpon>201911221107436_EventInheritanceFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911250611202_ContactModelFK.resx">
+      <DependentUpon>201911250611202_ContactModelFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Overview.resx">
+      <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +151,7 @@
       <DependentUpon>RegisterView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EventPlannerV1.Models.Contact.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -137,7 +172,12 @@
     <None Include="Resources\LoginHeader.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\download.png" />
+    <None Include="Resources\avatar-default-icon.png" />
+    <None Include="Resources\contacts-512.png" />
     <Content Include="Resources\iconspace_planner_51_o9HXY.ico" />
+    <None Include="Resources\profile-icon-white-9.jpg" />
+    <None Include="Resources\white-profile-icon-10.jpg" />
     <None Include="Resources\iconspace_Planner-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
