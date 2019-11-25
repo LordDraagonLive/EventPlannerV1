@@ -13,6 +13,8 @@ namespace EventPlannerV1
 {
     public partial class LoginView : Form
     {
+        User _user;
+
         public LoginView()
         {
             InitializeComponent();
@@ -25,9 +27,9 @@ namespace EventPlannerV1
             if (LoginStatus == 1)
             {
                 MessageBox.Show("Login Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoginView loginView = new LoginView();
+                Overview overview = new Overview(_user);
                 this.Hide();
-                loginView.Show();
+                overview.Show();
             }
             else if(LoginStatus == 2)
             {
@@ -56,6 +58,7 @@ namespace EventPlannerV1
                 {
                     if (user.Username.Equals(username) && user.Password.Equals(password))
                     {
+                        _user = user;
                         return 1;
                     }
                 }
