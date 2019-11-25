@@ -28,6 +28,8 @@ namespace EventPlannerV1.Models
         [MaxLength(500)]
         public String Note { get; set; }
 
+        public int UserId { get; set; }
+        [ForeignKey(nameof(UserId))]
         public User User { get; set; }
 
     }
