@@ -32,20 +32,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.profileBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.contactsBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.showPredictBtn = new System.Windows.Forms.Button();
+            this.addEventBtn = new System.Windows.Forms.Button();
+            this.startDtPicker = new System.Windows.Forms.DateTimePicker();
+            this.endDtPicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,7 +52,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(761, 54);
+            this.panel1.Size = new System.Drawing.Size(969, 54);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -75,7 +71,7 @@
             // 
             this.panel3.Controls.Add(this.profileBtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(560, 0);
+            this.panel3.Location = new System.Drawing.Point(768, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(201, 54);
             this.panel3.TabIndex = 0;
@@ -97,164 +93,141 @@
             this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.profileBtn.UseVisualStyleBackColor = false;
             // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.Azure;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Navy;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(279, 29);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Weekly View";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // contactsBtn
             // 
+            this.contactsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.contactsBtn.AutoSize = true;
             this.contactsBtn.BackColor = System.Drawing.Color.Azure;
             this.contactsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.contactsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contactsBtn.FlatAppearance.BorderSize = 2;
-            this.contactsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.contactsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactsBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactsBtn.ForeColor = System.Drawing.Color.Navy;
-            this.contactsBtn.Location = new System.Drawing.Point(288, 3);
+            this.contactsBtn.Location = new System.Drawing.Point(802, 269);
+            this.contactsBtn.Margin = new System.Windows.Forms.Padding(10);
             this.contactsBtn.Name = "contactsBtn";
-            this.contactsBtn.Size = new System.Drawing.Size(263, 29);
+            this.contactsBtn.Size = new System.Drawing.Size(155, 37);
             this.contactsBtn.TabIndex = 1;
             this.contactsBtn.Text = "Contacts";
             this.contactsBtn.UseVisualStyleBackColor = false;
             this.contactsBtn.Click += new System.EventHandler(this.contactsBtn_Click);
             // 
-            // button2
+            // showPredictBtn
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.Azure;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Navy;
-            this.button2.Location = new System.Drawing.Point(557, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Monthly Prediction";
-            this.button2.UseVisualStyleBackColor = false;
+            this.showPredictBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.showPredictBtn.AutoSize = true;
+            this.showPredictBtn.BackColor = System.Drawing.Color.Azure;
+            this.showPredictBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showPredictBtn.FlatAppearance.BorderSize = 2;
+            this.showPredictBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPredictBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPredictBtn.ForeColor = System.Drawing.Color.Navy;
+            this.showPredictBtn.Location = new System.Drawing.Point(802, 426);
+            this.showPredictBtn.Name = "showPredictBtn";
+            this.showPredictBtn.Size = new System.Drawing.Size(155, 39);
+            this.showPredictBtn.TabIndex = 3;
+            this.showPredictBtn.Text = "Monthly Prediction";
+            this.showPredictBtn.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // addEventBtn
             // 
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Navy;
-            this.button3.Location = new System.Drawing.Point(656, 335);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 29);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Add Event";
-            this.button3.UseVisualStyleBackColor = false;
+            this.addEventBtn.AutoSize = true;
+            this.addEventBtn.BackColor = System.Drawing.Color.Azure;
+            this.addEventBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.addEventBtn.FlatAppearance.BorderSize = 2;
+            this.addEventBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addEventBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addEventBtn.ForeColor = System.Drawing.Color.Navy;
+            this.addEventBtn.Location = new System.Drawing.Point(802, 124);
+            this.addEventBtn.Name = "addEventBtn";
+            this.addEventBtn.Size = new System.Drawing.Size(155, 38);
+            this.addEventBtn.TabIndex = 4;
+            this.addEventBtn.Text = "Add Event";
+            this.addEventBtn.UseVisualStyleBackColor = false;
+            this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
             // 
-            // tableLayoutPanel1
+            // startDtPicker
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.53153F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.46847F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.contactsBtn, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(761, 35);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.startDtPicker.CalendarFont = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDtPicker.CalendarForeColor = System.Drawing.Color.Navy;
+            this.startDtPicker.CalendarMonthBackground = System.Drawing.Color.Azure;
+            this.startDtPicker.CalendarTitleForeColor = System.Drawing.Color.Navy;
+            this.startDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
+            this.startDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.startDtPicker.Location = new System.Drawing.Point(171, 75);
+            this.startDtPicker.Name = "startDtPicker";
+            this.startDtPicker.Size = new System.Drawing.Size(218, 21);
+            this.startDtPicker.TabIndex = 6;
             // 
-            // panel2
+            // endDtPicker
             // 
-            this.panel2.Controls.Add(this.monthCalendar1);
-            this.panel2.Controls.Add(this.tableLayoutPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 54);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(761, 210);
-            this.panel2.TabIndex = 6;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.monthCalendar1.Location = new System.Drawing.Point(289, 44);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Navy;
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 485);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(761, 38);
-            this.panel4.TabIndex = 7;
+            this.endDtPicker.CalendarForeColor = System.Drawing.Color.Navy;
+            this.endDtPicker.CalendarMonthBackground = System.Drawing.Color.Azure;
+            this.endDtPicker.CalendarTitleForeColor = System.Drawing.Color.Navy;
+            this.endDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
+            this.endDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.endDtPicker.Location = new System.Drawing.Point(566, 75);
+            this.endDtPicker.Name = "endDtPicker";
+            this.endDtPicker.Size = new System.Drawing.Size(216, 21);
+            this.endDtPicker.TabIndex = 7;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Navy;
-            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(365, 13);
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(12, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "INfiniUM©";
+            this.label2.Size = new System.Drawing.Size(153, 18);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Start Date/Time";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(418, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 18);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "End Date/Time";
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.BackColor = System.Drawing.Color.Azure;
+            this.panel2.Location = new System.Drawing.Point(17, 124);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(765, 430);
+            this.panel2.TabIndex = 19;
             // 
             // Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 523);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.panel4);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(969, 566);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.endDtPicker);
+            this.Controls.Add(this.startDtPicker);
+            this.Controls.Add(this.showPredictBtn);
+            this.Controls.Add(this.contactsBtn);
+            this.Controls.Add(this.addEventBtn);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "Overview";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Overview";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Overview_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,13 +240,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button contactsBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button addEventBtn;
+        private System.Windows.Forms.Button showPredictBtn;
+        private System.Windows.Forms.DateTimePicker startDtPicker;
+        private System.Windows.Forms.DateTimePicker endDtPicker;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel2;
     }
 }

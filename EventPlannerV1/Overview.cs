@@ -31,5 +31,19 @@ namespace EventPlannerV1
             this.Hide();
             contactsView.Show();
         }
+
+        private void addEventBtn_Click(object sender, EventArgs e)
+        {
+            //Get End time as the new event time
+            String newEventTime = endDtPicker.Value.ToString();
+
+            AddEventView addEventView = new AddEventView(_user);
+            addEventView.ShowDialog(this);
+        }
+
+        private void Overview_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace EventPlannerV1
             String contactNote = contactNoteTxt.Text.ToString();
             String contactTelNo = contactTelTxt.Text.ToString();
 
-
+            
             using (var db = new EventContext())
             {
                 var allContacts = from contact in db.Contacts where contact.User.UserId == _user.UserId select contact;

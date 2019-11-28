@@ -14,6 +14,8 @@ namespace EventPlannerV1
     public partial class ContactsView : Form
     {
         User _user;
+        int selectedContact;
+        int clickCounter = 0;
         //EventContext eventContext;
         public ContactsView()
         {
@@ -36,7 +38,7 @@ namespace EventPlannerV1
 
         private void ContactsView_Load(object sender, EventArgs e)
         {
-            contactsDtGrd.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            contactsDtGrd.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             contactsDtGrd.AutoGenerateColumns = true;
             contactsDtGrd.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
             contactsDtGrd.ColumnHeadersDefaultCellStyle.ForeColor = Color.Azure;
@@ -45,13 +47,13 @@ namespace EventPlannerV1
             contactsDtGrd.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F0F0F0");
             //contactsDtGrd.AlternatingRowsDefaultCellStyle.ForeColor = Color.Azure;
 
-            for (int i = 0; i < contactsDtGrd.Columns.Count; i++)
-            {
-                contactsDtGrd.Columns[i].FillWeight = GetFillWeight(contactsDtGrd.Columns[i].Name);
-                contactsDtGrd.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                contactsDtGrd.Columns[i].MinimumWidth = (int)contactsDtGrd.Columns[i].FillWeight;
+            //for (int i = 0; i < contactsDtGrd.Columns.Count; i++)
+            //{
+            //    contactsDtGrd.Columns[i].FillWeight = GetFillWeight(contactsDtGrd.Columns[i].Name);
+            //    contactsDtGrd.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //    contactsDtGrd.Columns[i].MinimumWidth = (int)contactsDtGrd.Columns[i].FillWeight;
 
-            }
+            //}
 
             var delBtnCol = new DataGridViewButtonColumn
             {
@@ -116,6 +118,17 @@ namespace EventPlannerV1
 
         private void contactsDtGrd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            clickCounter++;
+            if (clickCounter == 1)
+            {
+                this.contactNameTxt.Enabled = true;
+                this.contactEmailTxt.Enabled = true;
+                this.contactAddressTxt.Enabled = true;
+                this.contactTelTxt.Enabled = true;
+                this.contactNoteTxt.Enabled = true;
+                this.updateContactBtn.Enabled = true;
+
+            }
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
@@ -126,7 +139,7 @@ namespace EventPlannerV1
 
 
                 if (MessageBox.Show("Please confirm before proceed" 
-                    + "\n" + "Do you want to Delete " + contactName + " from contacts?",
+                    + "\n" + "Do you want to delete " + contactName + " from contacts?",
                     "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //if YES
@@ -134,6 +147,15 @@ namespace EventPlannerV1
                 }
 
 
+            }
+            else
+            {
+                selectedContact = (int)contactsDtGrd["contactId", e.RowIndex].Value;
+                this.contactNameTxt.Text = contactsDtGrd["Name", e.RowIndex].Value.ToString();
+                this.contactEmailTxt.Text = contactsDtGrd["Email", e.RowIndex].Value.ToString(); ;
+                this.contactAddressTxt.Text = contactsDtGrd["Address", e.RowIndex].Value.ToString(); ;
+                this.contactTelTxt.Text = contactsDtGrd["TelNo", e.RowIndex].Value.ToString(); ;
+                this.contactNoteTxt.Text = contactsDtGrd["Note", e.RowIndex].Value.ToString(); ;
             }
         }
 
@@ -167,6 +189,33 @@ namespace EventPlannerV1
             };
 
             contactsDtGrd.DataSource = bindingSource;
+        }
+
+        private void updateContactBtn_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Please confirm before proceed"
+                    + "\n" + "Do you want to update this contact?",
+                    "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //if YES
+                using (var db = new EventContext())
+                {
+                    Contact result = (from contact in db.Contacts
+                                      where contact.ContactId == selectedContact
+                                      select contact).SingleOrDefault();
+
+                    result.Name = this.contactNameTxt.Text.ToString();
+                    result.Email = this.contactEmailTxt.Text.ToString();
+                    result.Address = this.contactAddressTxt.Text.ToString();
+                    result.TelNo = this.contactTelTxt.Text.ToString();
+                    result.Note = this.contactNoteTxt.Text.ToString();
+
+                    db.SaveChanges();
+                    ReloadContacts(db);
+                }
+            }
+
         }
     }
 }
