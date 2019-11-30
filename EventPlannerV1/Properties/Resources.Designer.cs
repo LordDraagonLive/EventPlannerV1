@@ -65,7 +65,7 @@ namespace EventPlannerV1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap avatar_default_icon {
             get {
-                object obj = ResourceManager.GetObject("avatar-default-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("avatar_default_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace EventPlannerV1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap contacts_512 {
             get {
-                object obj = ResourceManager.GetObject("contacts-512", resourceCulture);
+                object obj = ResourceManager.GetObject("contacts_512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,19 @@ namespace EventPlannerV1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_button {
+            get {
+                object obj = ResourceManager.GetObject("edit_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconspace_Planner_512 {
             get {
-                object obj = ResourceManager.GetObject("iconspace_Planner-512", resourceCulture);
+                object obj = ResourceManager.GetObject("iconspace_Planner_512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +126,16 @@ namespace EventPlannerV1.Properties {
         internal static System.Drawing.Bitmap LoginHeader {
             get {
                 object obj = ResourceManager.GetObject("LoginHeader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove {
+            get {
+                object obj = ResourceManager.GetObject("remove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
