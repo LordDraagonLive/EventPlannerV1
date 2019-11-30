@@ -64,11 +64,23 @@
     <Compile Include="AddContactView.Designer.cs">
       <DependentUpon>AddContactView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEventView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEventView.Designer.cs">
+      <DependentUpon>AddEventView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContactsView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ContactsView.Designer.cs">
       <DependentUpon>ContactsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditEventView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditEventView.Designer.cs">
+      <DependentUpon>EditEventView.cs</DependentUpon>
     </Compile>
     <Compile Include="EventContext.cs" />
     <Compile Include="LoginView.cs">
@@ -77,21 +89,25 @@
     <Compile Include="LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911220414233_InitialCreate.cs" />
-    <Compile Include="Migrations\201911220414233_InitialCreate.Designer.cs">
-      <DependentUpon>201911220414233_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201911300014257_InitialMigration.cs" />
+    <Compile Include="Migrations\201911300014257_InitialMigration.Designer.cs">
+      <DependentUpon>201911300014257_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911220941195_EventPlanner.cs" />
-    <Compile Include="Migrations\201911220941195_EventPlanner.Designer.cs">
-      <DependentUpon>201911220941195_EventPlanner.cs</DependentUpon>
+    <Compile Include="Migrations\201911300028159_InitialMigration1.cs" />
+    <Compile Include="Migrations\201911300028159_InitialMigration1.Designer.cs">
+      <DependentUpon>201911300028159_InitialMigration1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911221107436_EventInheritanceFix.cs" />
-    <Compile Include="Migrations\201911221107436_EventInheritanceFix.Designer.cs">
-      <DependentUpon>201911221107436_EventInheritanceFix.cs</DependentUpon>
+    <Compile Include="Migrations\201911300050478_InitialMigration2.cs" />
+    <Compile Include="Migrations\201911300050478_InitialMigration2.Designer.cs">
+      <DependentUpon>201911300050478_InitialMigration2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911250611202_ContactModelFK.cs" />
-    <Compile Include="Migrations\201911250611202_ContactModelFK.Designer.cs">
-      <DependentUpon>201911250611202_ContactModelFK.cs</DependentUpon>
+    <Compile Include="Migrations\201911300101405_InitialMigration3.cs" />
+    <Compile Include="Migrations\201911300101405_InitialMigration3.Designer.cs">
+      <DependentUpon>201911300101405_InitialMigration3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911300127445_InitialMigration4.cs" />
+    <Compile Include="Migrations\201911300127445_InitialMigration4.Designer.cs">
+      <DependentUpon>201911300127445_InitialMigration4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -113,26 +129,42 @@
     <Compile Include="RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilites\EventDetailsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utilites\EventDetailsPanel.Designer.cs">
+      <DependentUpon>EventDetailsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilites\Helper.cs" />
     <EmbeddedResource Include="AddContactView.resx">
       <DependentUpon>AddContactView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEventView.resx">
+      <DependentUpon>AddEventView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContactsView.resx">
       <DependentUpon>ContactsView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditEventView.resx">
+      <DependentUpon>EditEventView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911220414233_InitialCreate.resx">
-      <DependentUpon>201911220414233_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911300014257_InitialMigration.resx">
+      <DependentUpon>201911300014257_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911220941195_EventPlanner.resx">
-      <DependentUpon>201911220941195_EventPlanner.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911300028159_InitialMigration1.resx">
+      <DependentUpon>201911300028159_InitialMigration1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911221107436_EventInheritanceFix.resx">
-      <DependentUpon>201911221107436_EventInheritanceFix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911300050478_InitialMigration2.resx">
+      <DependentUpon>201911300050478_InitialMigration2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911250611202_ContactModelFK.resx">
-      <DependentUpon>201911250611202_ContactModelFK.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911300101405_InitialMigration3.resx">
+      <DependentUpon>201911300101405_InitialMigration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911300127445_InitialMigration4.resx">
+      <DependentUpon>201911300127445_InitialMigration4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
@@ -149,6 +181,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterView.resx">
       <DependentUpon>RegisterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilites\EventDetailsPanel.resx">
+      <DependentUpon>EventDetailsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EventPlannerV1.Models.Contact.datasource" />
@@ -172,13 +207,18 @@
     <None Include="Resources\LoginHeader.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\remove.png" />
+    <None Include="Resources\update-icon.png" />
     <None Include="Resources\download.png" />
     <None Include="Resources\avatar-default-icon.png" />
     <None Include="Resources\contacts-512.png" />
+    <None Include="Resources\delete-button-png-17.png" />
+    <None Include="Resources\edit-button.png" />
     <Content Include="Resources\iconspace_planner_51_o9HXY.ico" />
     <None Include="Resources\profile-icon-white-9.jpg" />
     <None Include="Resources\white-profile-icon-10.jpg" />
     <None Include="Resources\iconspace_Planner-512.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

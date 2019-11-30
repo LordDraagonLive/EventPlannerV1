@@ -24,6 +24,8 @@ namespace EventPlannerV1
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Event> Events { get; set; }
+        //public virtual DbSet<Task> Tasks { get; set; }
+        //public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
 
     }
