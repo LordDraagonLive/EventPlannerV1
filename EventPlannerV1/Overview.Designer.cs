@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Overview));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.profileBtn = new System.Windows.Forms.Button();
             this.contactsBtn = new System.Windows.Forms.Button();
             this.showPredictBtn = new System.Windows.Forms.Button();
             this.addEventBtn = new System.Windows.Forms.Button();
@@ -40,8 +40,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.profileBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,23 +78,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(201, 54);
             this.panel3.TabIndex = 0;
-            // 
-            // profileBtn
-            // 
-            this.profileBtn.AutoSize = true;
-            this.profileBtn.BackColor = System.Drawing.Color.Transparent;
-            this.profileBtn.BackgroundImage = global::EventPlannerV1.Properties.Resources.avatar_default_icon;
-            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.profileBtn.FlatAppearance.BorderSize = 2;
-            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileBtn.ForeColor = System.Drawing.Color.Navy;
-            this.profileBtn.Location = new System.Drawing.Point(126, 0);
-            this.profileBtn.Name = "profileBtn";
-            this.profileBtn.Size = new System.Drawing.Size(63, 55);
-            this.profileBtn.TabIndex = 0;
-            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.profileBtn.UseVisualStyleBackColor = false;
             // 
             // contactsBtn
             // 
@@ -199,10 +185,37 @@
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.Azure;
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Location = new System.Drawing.Point(17, 124);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(765, 430);
             this.panel2.TabIndex = 19;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(765, 430);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // profileBtn
+            // 
+            this.profileBtn.AutoSize = true;
+            this.profileBtn.BackColor = System.Drawing.Color.Transparent;
+            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
+            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.profileBtn.FlatAppearance.BorderSize = 2;
+            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileBtn.ForeColor = System.Drawing.Color.Navy;
+            this.profileBtn.Location = new System.Drawing.Point(126, 0);
+            this.profileBtn.Name = "profileBtn";
+            this.profileBtn.Size = new System.Drawing.Size(63, 55);
+            this.profileBtn.TabIndex = 0;
+            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.profileBtn.UseVisualStyleBackColor = false;
             // 
             // Overview
             // 
@@ -223,11 +236,13 @@
             this.Name = "Overview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Overview";
+            this.Activated += new System.EventHandler(this.Overview_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Overview_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +262,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

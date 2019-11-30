@@ -150,7 +150,7 @@ namespace EventPlannerV1
             bool taskRadVal = taskRadBtn.Checked;
             bool appointRadVal = appointRadBtn.Checked;
             String eventLocation = locationTxt.Text.ToString();
-            String EventContact = eventContactsDropdown.Text;
+            String eventContact = eventContactsDropdown.Text;
             String eventNote = eventNoteTxt.Text.ToString();
 
 
@@ -185,6 +185,7 @@ namespace EventPlannerV1
                     {
                         MessageBox.Show("Title name already exists!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         titleTxt.Focus();
+                        return;
                     }
                 }
 
@@ -195,16 +196,16 @@ namespace EventPlannerV1
                 if (appointRadVal == true)
                 {
 
-                    Contact selectedContact = userContacts.Where(i => i.Name == EventContact).FirstOrDefault();
+                    Contact selectedContact = userContacts.Where(i => i.Name == eventContact).FirstOrDefault();
                     if (selectedContact.Name.Equals("<< No Contact >>"))
                     {
                         selectedContact = null;
                     }
-                    newEvent = new Appointment { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime=endDateTime,Contact= selectedContact, Recurr=repeatEventBool, Location=eventLocation,EventNote=eventNote, User=_user };
+                    newEvent = new Appointment { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime=endDateTime,ContactId= selectedContact.ContactId, Recurr=repeatEventBool, Location=eventLocation,EventNote=eventNote, UserId=_user.UserId };
                 }
                 else
                 {
-                    newEvent = new Task { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Recurr = repeatEventBool, EventNote = eventNote, User = _user };
+                    newEvent = new Task { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Recurr = repeatEventBool, EventNote = eventNote, UserId = _user.UserId };
                 }
                 db.Events.Add(newEvent);
 
@@ -215,7 +216,7 @@ namespace EventPlannerV1
                 catch (Exception ex)
                 {
                     MessageBox.Show("Internal Database Error!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
+                    return;
                 }
 
                 MessageBox.Show("Event Addition Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);

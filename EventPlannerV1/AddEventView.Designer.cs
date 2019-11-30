@@ -158,7 +158,7 @@
             this.endDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
             this.endDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.endDtPicker.Location = new System.Drawing.Point(561, 83);
+            this.endDtPicker.Location = new System.Drawing.Point(572, 80);
             this.endDtPicker.Name = "endDtPicker";
             this.endDtPicker.Size = new System.Drawing.Size(216, 21);
             this.endDtPicker.TabIndex = 37;
@@ -182,22 +182,22 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Navy;
-            this.label7.Location = new System.Drawing.Point(9, 86);
+            this.label7.Location = new System.Drawing.Point(9, 87);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 18);
+            this.label7.Size = new System.Drawing.Size(81, 18);
             this.label7.TabIndex = 38;
-            this.label7.Text = "Start Date";
+            this.label7.Text = "Starts At";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(462, 85);
+            this.label8.Location = new System.Drawing.Point(482, 83);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 18);
+            this.label8.Size = new System.Drawing.Size(71, 18);
             this.label8.TabIndex = 39;
-            this.label8.Text = "End Date";
+            this.label8.Text = "Ends At";
             // 
             // appointRadBtn
             // 
