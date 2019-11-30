@@ -7,13 +7,13 @@ namespace EventPlannerV1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ContactModelFK : IMigrationMetadata
+    public sealed partial class InitialMigration2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ContactModelFK));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911250611202_ContactModelFK"; }
+            get { return "201911300050478_InitialMigration2"; }
         }
         
         string IMigrationMetadata.Source

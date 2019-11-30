@@ -7,13 +7,13 @@ namespace EventPlannerV1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class EventInheritanceFix : IMigrationMetadata
+    public sealed partial class InitialMigration3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EventInheritanceFix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration3));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911221107436_EventInheritanceFix"; }
+            get { return "201911300101405_InitialMigration3"; }
         }
         
         string IMigrationMetadata.Source

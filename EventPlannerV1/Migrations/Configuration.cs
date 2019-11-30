@@ -10,7 +10,6 @@ namespace EventPlannerV1.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "EventPlannerV1.EventContext";
         }
 
         protected override void Seed(EventPlannerV1.EventContext context)
