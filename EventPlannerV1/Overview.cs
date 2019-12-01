@@ -92,7 +92,10 @@ namespace EventPlannerV1
             int updateStat = UpdateEvent(tempEvent);
             flowLayoutPanel1.Controls.Clear();
             InitEvents();
-            //MessageBox.Show("Repeat btn clicked on ", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            if (updateStat == 1)
+            {
+                MessageBox.Show("Internal Database Error! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
         }
@@ -111,22 +114,21 @@ namespace EventPlannerV1
                 Event result = (from userEvent in db.Events
                                     where userEvent.EventId == evnt.EventId
                                     select userEvent).SingleOrDefault();
-
-                //result = evnt;
-                result.EventTitle = evnt.EventTitle;
-                result.StartDateTime = evnt.StartDateTime;
-                result.EndDateTime = evnt.EndDateTime;
-                result.Recurr = evnt.Recurr;
-                result.EventNote = evnt.EventNote;
-
+                
                 try
                 {
+                    //result = evnt;
+                    result.EventTitle = evnt.EventTitle;
+                    result.StartDateTime = evnt.StartDateTime;
+                    result.EndDateTime = evnt.EndDateTime;
+                    result.Recurr = evnt.Recurr;
+                    result.EventNote = evnt.EventNote;
                     db.SaveChanges();
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    Utilites.Helper.SaveLog(ex);
                     return 1;
                 }
             }

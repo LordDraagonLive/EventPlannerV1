@@ -58,6 +58,7 @@ namespace EventPlannerV1
                 }
                 catch (Exception ex)
                 {
+                    Utilites.Helper.SaveLog(ex);
                     MessageBox.Show("Internal Database Error!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }

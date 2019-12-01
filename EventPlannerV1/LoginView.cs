@@ -33,7 +33,7 @@ namespace EventPlannerV1
             }
             else if(LoginStatus == 2)
             {
-                MessageBox.Show("Login Failed! Please Check username and password", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Login Failed! Please Check username and password", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);                
                 usernameTxt.Focus();
             }
             else if (LoginStatus == 0)

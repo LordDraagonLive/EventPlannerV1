@@ -151,6 +151,8 @@ namespace EventPlannerV1
                 catch (Exception ex)
                 {
 
+                    Utilites.Helper.SaveLog(ex);
+
                     registerStatus = new RegisterStatus()
                     {
                         Message = "Internal Database Error!",
