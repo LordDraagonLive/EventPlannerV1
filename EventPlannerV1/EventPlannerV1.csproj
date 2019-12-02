@@ -109,6 +109,14 @@
     <Compile Include="Migrations\201911300127445_InitialMigration4.Designer.cs">
       <DependentUpon>201911300127445_InitialMigration4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912020430512_EventTypeAdd.cs" />
+    <Compile Include="Migrations\201912020430512_EventTypeAdd.Designer.cs">
+      <DependentUpon>201912020430512_EventTypeAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912020934126_EventContactNullable.cs" />
+    <Compile Include="Migrations\201912020934126_EventContactNullable.Designer.cs">
+      <DependentUpon>201912020934126_EventContactNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -165,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911300127445_InitialMigration4.resx">
       <DependentUpon>201911300127445_InitialMigration4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912020430512_EventTypeAdd.resx">
+      <DependentUpon>201912020430512_EventTypeAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912020934126_EventContactNullable.resx">
+      <DependentUpon>201912020934126_EventContactNullable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>

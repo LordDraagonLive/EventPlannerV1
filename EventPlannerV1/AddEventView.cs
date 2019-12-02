@@ -1,4 +1,5 @@
 ﻿using EventPlannerV1.Models;
+using EventPlannerV1.Utilites;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +7,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Task = EventPlannerV1.Models.Task;
 
@@ -154,7 +154,7 @@ namespace EventPlannerV1
             String eventNote = eventNoteTxt.Text.ToString();
 
 
-            int ValidationStatus = ValidateAddEvent();
+            int ValidationStatus = ValidateEvents();
 
             if (ValidationStatus == 1)
             {
@@ -200,12 +200,16 @@ namespace EventPlannerV1
                     if (selectedContact.Name.Equals("<< No Contact >>"))
                     {
                         selectedContact = null;
+                        newEvent = new Appointment { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Contact = selectedContact, Recurr = repeatEventBool, Location = eventLocation, EventNote = eventNote, EventType = "Appointment", UserId = _user.UserId };
                     }
-                    newEvent = new Appointment { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime=endDateTime,ContactId= selectedContact.ContactId, Recurr=repeatEventBool, Location=eventLocation,EventNote=eventNote, UserId=_user.UserId };
+                    else
+                    {
+                        newEvent = new Appointment { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, ContactId = selectedContact.ContactId, Recurr = repeatEventBool, Location = eventLocation, EventNote = eventNote, EventType = "Appointment", UserId = _user.UserId };
+                    }
                 }
                 else
                 {
-                    newEvent = new Task { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Recurr = repeatEventBool, EventNote = eventNote, UserId = _user.UserId };
+                    newEvent = new Task { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Recurr = repeatEventBool, EventNote = eventNote,EventType="Task", UserId = _user.UserId };
                 }
                 db.Events.Add(newEvent);
 
@@ -216,6 +220,7 @@ namespace EventPlannerV1
                 catch (Exception ex)
                 {
                     MessageBox.Show("Internal Database Error!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Helper.SaveLog(ex);
                     return;
                 }
 
@@ -234,7 +239,7 @@ namespace EventPlannerV1
         /// Simple validation on add event fields
         /// </summary>
         /// <returns></returns>
-        private int ValidateAddEvent()
+        private int ValidateEvents()
         {
             if (startDtPicker.Value.ToString().Equals(endDtPicker.Value.ToString())){
                 if (titleTxt.Text.ToString().Equals("")){return 2;}

@@ -71,14 +71,27 @@ namespace EventPlannerV1
 
         private void EventDetailsPanel_EditButtonClick(object sender, EventArgs e)
         {
-            
+            EventDetailsPanel temp = (EventDetailsPanel)sender;
+            Event userEvent = temp.Event;
+
             //MessageBox.Show("Edit btn click!", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            
+            // Redirect to the edit event view
+            EditEventView editEventView = new EditEventView(userEvent, _user);
+            editEventView.ShowDialog(this);
         }
 
         private void EventDetailsPanel_RemoveButtonClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Remove btn click!", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            EventDetailsPanel temp = (EventDetailsPanel)sender;
+            Event delEvent = temp.Event;
+            if (MessageBox.Show("Please confirm before proceed"
+                                + "\n" + "Do you want to Delete event: '" + delEvent.EventTitle + "' ?",
+                                "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //if YES
+                DeleteEvent(delEvent.EventId);
+            }
         }
 
         private void EventDetailsPanel_RepeatButtonClick(object sender, EventArgs e)
@@ -96,7 +109,6 @@ namespace EventPlannerV1
             {
                 MessageBox.Show("Internal Database Error! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
 
         }
 
@@ -133,6 +145,34 @@ namespace EventPlannerV1
                 }
             }
             return 0;
+        }
+
+        /// <summary>
+        /// Deletes a event by event ID
+        /// </summary>
+        /// <param name="EventId"></param>
+        private void DeleteEvent(int EventId)
+        {
+            using (var db = new EventContext())
+            {
+                var DelEvent = (from userEvent in db.Events
+                                  where userEvent.EventId == EventId
+                                  select userEvent).FirstOrDefault();
+                try
+                {
+                    db.Events.Remove(DelEvent);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Internal Database Error! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Helper.SaveLog(ex);
+                    return;
+                }
+                flowLayoutPanel1.Controls.Clear();
+                InitEvents();
+                MessageBox.Show("Event '"+ DelEvent.EventTitle +"' successfully deleted! ", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
     }
