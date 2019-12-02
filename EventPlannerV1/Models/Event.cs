@@ -23,11 +23,11 @@ namespace EventPlannerV1.Models
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime EndDateTime { get; set; }
-        //[Required]
-        //[MaxLength(50)]
-        //public String EventType { get; set; }
+        [Required]
+        [MaxLength(128)]
+        public String EventType { get; set; }
         // Discriminator column is a auto-gen column which will determine
-        // if the Event is a task or an appointment
+        // if the Event is a task or an appointment in the database
         [Required]
         public bool Recurr { get; set; }
         [MaxLength(500)]

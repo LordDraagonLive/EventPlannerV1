@@ -21,7 +21,7 @@ namespace EventPlannerV1.Models
         //public User User { get; set; }
 
         //[ForeignKey("Contact")]
-        public int ContactId { get; set; }
+        public int? ContactId { get; set; }
         [ForeignKey(nameof(ContactId))]
         public Contact Contact { get; set; }
 
