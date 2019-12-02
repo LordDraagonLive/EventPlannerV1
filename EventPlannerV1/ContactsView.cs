@@ -1,4 +1,5 @@
 ﻿using EventPlannerV1.Models;
+using EventPlannerV1.Utilites;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -211,11 +212,27 @@ namespace EventPlannerV1
                     result.TelNo = this.contactTelTxt.Text.ToString();
                     result.Note = this.contactNoteTxt.Text.ToString();
 
-                    db.SaveChanges();
+                    try
+                    {
+                        db.SaveChanges();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Internal Database Error!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Helper.SaveLog(ex);
+                    }
                     ReloadContacts(db);
                 }
             }
 
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Overview overview = new Overview(_user);
+            overview.Show();
+            this.Close();
         }
     }
 }

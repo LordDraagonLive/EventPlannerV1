@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contactsDtGrd = new System.Windows.Forms.DataGridView();
+            this.backBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDtGrd)).BeginInit();
@@ -66,6 +67,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.contactsBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -255,6 +257,24 @@
             this.contactsDtGrd.TabIndex = 8;
             this.contactsDtGrd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contactsDtGrd_CellClick);
             // 
+            // backBtn
+            // 
+            this.backBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.backBtn.AutoSize = true;
+            this.backBtn.BackColor = System.Drawing.Color.Azure;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backBtn.FlatAppearance.BorderSize = 2;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.Navy;
+            this.backBtn.Location = new System.Drawing.Point(12, 9);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(101, 29);
+            this.backBtn.TabIndex = 9;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // ContactsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,5 +315,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox contactNoteTxt;
         private System.Windows.Forms.Button updateContactBtn;
+        private System.Windows.Forms.Button backBtn;
     }
 }
