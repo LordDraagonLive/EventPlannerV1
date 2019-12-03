@@ -34,6 +34,7 @@ namespace EventPlannerV1
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.profileBtn = new System.Windows.Forms.Button();
             this.contactsBtn = new System.Windows.Forms.Button();
             this.showPredictBtn = new System.Windows.Forms.Button();
             this.addEventBtn = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@ namespace EventPlannerV1
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.profileBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,6 +80,23 @@ namespace EventPlannerV1
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(201, 54);
             this.panel3.TabIndex = 0;
+            // 
+            // profileBtn
+            // 
+            this.profileBtn.AutoSize = true;
+            this.profileBtn.BackColor = System.Drawing.Color.Transparent;
+            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
+            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.profileBtn.FlatAppearance.BorderSize = 2;
+            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileBtn.ForeColor = System.Drawing.Color.Navy;
+            this.profileBtn.Location = new System.Drawing.Point(126, 0);
+            this.profileBtn.Name = "profileBtn";
+            this.profileBtn.Size = new System.Drawing.Size(63, 55);
+            this.profileBtn.TabIndex = 0;
+            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.profileBtn.UseVisualStyleBackColor = false;
             // 
             // contactsBtn
             // 
@@ -140,29 +157,30 @@ namespace EventPlannerV1
             this.startDtPicker.CalendarForeColor = System.Drawing.Color.Navy;
             this.startDtPicker.CalendarMonthBackground = System.Drawing.Color.Azure;
             this.startDtPicker.CalendarTitleForeColor = System.Drawing.Color.Navy;
-            this.startDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
+            this.startDtPicker.CustomFormat = "MMMM, dd, yyyy HH:mm:ss";
             this.startDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startDtPicker.Location = new System.Drawing.Point(171, 75);
             this.startDtPicker.Name = "startDtPicker";
             this.startDtPicker.Size = new System.Drawing.Size(218, 21);
             this.startDtPicker.TabIndex = 6;
-            this.startDtPicker.Value = DateTime.Now.AddMonths(-1);
+            this.startDtPicker.Value = new System.DateTime(2019, 11, 3, 8, 26, 31, 679);
+            this.startDtPicker.ValueChanged += new System.EventHandler(this.startDtPicker_ValueChanged);
             // 
             // endDtPicker
             // 
             this.endDtPicker.CalendarForeColor = System.Drawing.Color.Navy;
             this.endDtPicker.CalendarMonthBackground = System.Drawing.Color.Azure;
             this.endDtPicker.CalendarTitleForeColor = System.Drawing.Color.Navy;
-            this.endDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
+            this.endDtPicker.CustomFormat = "MMMM, dd, yyyy HH:mm:ss";
             this.endDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDtPicker.Location = new System.Drawing.Point(566, 75);
             this.endDtPicker.Name = "endDtPicker";
             this.endDtPicker.Size = new System.Drawing.Size(216, 21);
             this.endDtPicker.TabIndex = 7;
-            this.endDtPicker.Value = DateTime.Now.AddMonths(1);
-
+            this.endDtPicker.Value = new System.DateTime(2020, 1, 3, 8, 26, 31, 682);
+            this.endDtPicker.ValueChanged += new System.EventHandler(this.endDtPicker_ValueChanged);
             // 
             // label2
             // 
@@ -204,23 +222,6 @@ namespace EventPlannerV1
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(765, 430);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // profileBtn
-            // 
-            this.profileBtn.AutoSize = true;
-            this.profileBtn.BackColor = System.Drawing.Color.Transparent;
-            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
-            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.profileBtn.FlatAppearance.BorderSize = 2;
-            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileBtn.ForeColor = System.Drawing.Color.Navy;
-            this.profileBtn.Location = new System.Drawing.Point(126, 0);
-            this.profileBtn.Name = "profileBtn";
-            this.profileBtn.Size = new System.Drawing.Size(63, 55);
-            this.profileBtn.TabIndex = 0;
-            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.profileBtn.UseVisualStyleBackColor = false;
             // 
             // Overview
             // 

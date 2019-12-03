@@ -63,6 +63,8 @@ namespace EventPlannerV1
                 && usrEvnt.StartDateTime<=endDtPicker.Value 
                 && usrEvnt.EndDateTime<= endDtPicker.Value)).ToList();
 
+                SetRepeatEvent();
+
                 foreach (var userEvent in _events)
                 {
                     EventDetailsPanel eventDetailsPanel = new EventDetailsPanel(_user, userEvent);
@@ -74,15 +76,54 @@ namespace EventPlannerV1
                 }
             }
 
-            SetRepeatEvent();
         }
 
+        /// <summary>
+        /// Get all recurring events and if an
+        /// event is expired then set the recurr day
+        /// </summary>
         private void SetRepeatEvent()
         {
+            //List<EventRepeatStat> eventRepeatStats = new List<EventRepeatStat>();
             List<Event> repeatinEvents = new List<Event>(_events.Where(userEvnt => userEvnt.Recurr == true));
-            
+            foreach (var usrEvnt in repeatinEvents)
+            {
+                DateTime repeatStartDateTime = usrEvnt.StartDateTime.AddDays(1);
+                DateTime repeatEndDateTime = usrEvnt.EndDateTime.AddDays(1);
+                //eventRepeatStats.Add(new EventRepeatStat()
+                //{
+                //    UserEvent = usrEvnt,
+                //    RepeatStartDateTime = repeatStartDateTime,
+                //    RepeatEndDateTime = repeatEndDateTime
+                //});
+
+                if ((usrEvnt.StartDateTime < DateTime.Now) && (usrEvnt.EndDateTime < DateTime.Now))
+                {
+                    usrEvnt.StartDateTime = repeatStartDateTime;
+                    usrEvnt.EndDateTime = repeatEndDateTime;
+                    int updateStat = UpdateEvent(usrEvnt);
+                    if (updateStat == 1)
+                    {
+                        MessageBox.Show("An error occured while updating the events list! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // File log is saved under the UpdateEvent(evt) func
+                    }
+
+                }
+            }
+
 
         }
+
+        /// <summary>
+        /// Struct which holds the event
+        /// repetition data
+        /// </summary>
+        //struct EventRepeatStat
+        //{
+        //    public Event UserEvent;
+        //    public DateTime RepeatStartDateTime;
+        //    public DateTime RepeatEndDateTime;
+        //}
 
         private void EventDetailsPanel_EditButtonClick(object sender, EventArgs e)
         {
@@ -127,12 +168,23 @@ namespace EventPlannerV1
 
         }
 
+        /// <summary>
+        /// Refresh the view every time 
+        /// the window gains focus.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Overview_Activated(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
             InitEvents();
         }
 
+        /// <summary>
+        /// Updates the provided event in the DB.
+        /// </summary>
+        /// <param name="evnt"></param>
+        /// <returns></returns>
         private int UpdateEvent(Event evnt)
         {
             using (var db = new EventContext())
@@ -190,5 +242,26 @@ namespace EventPlannerV1
             }
         }
 
+        /// <summary>
+        /// Refresh the events list when start date range changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void startDtPicker_ValueChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            InitEvents();
+        }
+
+        /// <summary>
+        /// Refersh the events list when end date range changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void endDtPicker_ValueChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            InitEvents();
+        }
     }
 }
