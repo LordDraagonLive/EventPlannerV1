@@ -62,6 +62,7 @@ namespace EventPlannerV1
                 && usrEvnt.EndDateTime>= startDtPicker.Value 
                 && usrEvnt.StartDateTime<=endDtPicker.Value 
                 && usrEvnt.EndDateTime<= endDtPicker.Value)).ToList();
+
                 foreach (var userEvent in _events)
                 {
                     EventDetailsPanel eventDetailsPanel = new EventDetailsPanel(_user, userEvent);
