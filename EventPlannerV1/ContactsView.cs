@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -171,8 +172,21 @@ namespace EventPlannerV1
                 var DelContact = (from contact in db.Contacts
                          where contact.ContactId == ContactId
                          select contact).FirstOrDefault();
-                db.Contacts.Remove(DelContact);
-                db.SaveChanges();
+                try
+                {
+                    db.Contacts.Remove(DelContact);
+                    db.SaveChanges();
+                }
+                catch (DbUpdateException ex)
+                {
+                    MessageBox.Show("This contact is being used by one or more events. Delete the related events before deleting this contact!", "Delete Failed!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Helper.SaveLog(ex);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Internal Database Error!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Helper.SaveLog(ex);
+                }
                 ReloadContacts(db);
             }
         }
