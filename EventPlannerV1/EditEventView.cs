@@ -358,7 +358,7 @@ namespace EventPlannerV1
                 Name = "endsAtLabel",
                 Size = new System.Drawing.Size(77, 18),
                 TabIndex = 29,
-                Text = "Starts At"
+                Text = "Ends At"
             };
             endsAtDtPicker = new DateTimePicker
             {
