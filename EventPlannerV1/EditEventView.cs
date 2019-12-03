@@ -75,10 +75,32 @@ namespace EventPlannerV1
                 List<Contact> dropDownContacts = (from contact in db.Contacts where contact.User.UserId == _user.UserId select contact).ToList();
                 userContacts = dropDownContacts;
                 dropDownContacts.Insert(0, new Contact() { Name = "<< No Contact >>" });
+
+                if (_userEvent.GetType() == typeof(Appointment))
+                {
+
+                    if (((Appointment)_userEvent).ContactId != 0)
+                    {
+                        int? userEventContactId = ((Appointment)_userEvent).ContactId;
+                        Contact defaultContact = userContacts.Where(contact => contact.ContactId == userEventContactId).FirstOrDefault();
+
+                        dropDownContacts.Remove(defaultContact);
+                        dropDownContacts.Insert(0, defaultContact);
+                    }
+                }
+
                 eventContactsDropdown.DataSource = dropDownContacts;
                 eventContactsDropdown.ValueMember = "ContactId";
                 eventContactsDropdown.DisplayMember = "Name";
+
             }
+            //if (((Appointment)_userEvent).ContactId != 0)
+            //{
+            //    int? userEventContactId = ((Appointment)_userEvent).ContactId;
+            //    Contact defaultContact = userContacts.Where(contact => contact.ContactId == userEventContactId).FirstOrDefault();
+
+            //    eventContactsDropdown.SelectedText = defaultContact.Name;
+            //}
 
             // Add the dynamic UI controls to the view
             this.Controls.Add(startsAtLabel);
@@ -119,10 +141,10 @@ namespace EventPlannerV1
 
                 locationTxt.Text = ((Appointment)_userEvent).Location;
                 
-                if (((Appointment)_userEvent).Contact!=null)
-                {
-                    eventContactsDropdown.Text = ((Appointment)_userEvent).Contact.Name;
-                }
+                //if (((Appointment)_userEvent).ContactId!=0)
+                //{
+                //    eventContactsDropdown.Text = ((Appointment)_userEvent).Contact.Name;
+                //}
             }
 
         }
@@ -406,7 +428,7 @@ namespace EventPlannerV1
                 Name = "eventNoteLbl",
                 Size = new System.Drawing.Size(77, 18),
                 TabIndex = 29,
-                Text = "Location"
+                Text = "Note"
             };
             eventNoteTxt = new TextBox
             {

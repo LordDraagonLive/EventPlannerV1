@@ -56,7 +56,12 @@ namespace EventPlannerV1
         {
             using (var db = new EventContext())
             {
-                _events = (from userEvent in db.Events where userEvent.User.UserId == _user.UserId select userEvent).ToList();
+                _events = (from userEvent in db.Events where (userEvent.User.UserId == _user.UserId)
+                           select userEvent).ToList();
+                _events = _events.Where(usrEvnt => (usrEvnt.StartDateTime>= startDtPicker.Value 
+                && usrEvnt.EndDateTime>= startDtPicker.Value 
+                && usrEvnt.StartDateTime<=endDtPicker.Value 
+                && usrEvnt.EndDateTime<= endDtPicker.Value)).ToList();
                 foreach (var userEvent in _events)
                 {
                     EventDetailsPanel eventDetailsPanel = new EventDetailsPanel(_user, userEvent);
@@ -67,6 +72,15 @@ namespace EventPlannerV1
                     flowLayoutPanel1.Controls.Add(eventDetailsPanel);
                 }
             }
+
+            SetRepeatEvent();
+        }
+
+        private void SetRepeatEvent()
+        {
+            List<Event> repeatinEvents = new List<Event>(_events.Where(userEvnt => userEvnt.Recurr == true));
+            
+
         }
 
         private void EventDetailsPanel_EditButtonClick(object sender, EventArgs e)

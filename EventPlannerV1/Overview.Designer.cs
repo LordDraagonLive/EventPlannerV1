@@ -1,4 +1,6 @@
-﻿namespace EventPlannerV1
+﻿using System;
+
+namespace EventPlannerV1
 {
     partial class Overview
     {
@@ -145,6 +147,7 @@
             this.startDtPicker.Name = "startDtPicker";
             this.startDtPicker.Size = new System.Drawing.Size(218, 21);
             this.startDtPicker.TabIndex = 6;
+            this.startDtPicker.Value = DateTime.Now.AddMonths(-1);
             // 
             // endDtPicker
             // 
@@ -158,6 +161,8 @@
             this.endDtPicker.Name = "endDtPicker";
             this.endDtPicker.Size = new System.Drawing.Size(216, 21);
             this.endDtPicker.TabIndex = 7;
+            this.endDtPicker.Value = DateTime.Now.AddMonths(1);
+
             // 
             // label2
             // 
