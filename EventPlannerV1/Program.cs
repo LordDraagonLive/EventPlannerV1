@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventPlannerV1.Utilites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace EventPlannerV1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // create xml file if not available
+            Helper.InitXmlSave();
             Application.Run(new LoginView());
         }
     }
