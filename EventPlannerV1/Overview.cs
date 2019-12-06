@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -82,7 +83,7 @@ namespace EventPlannerV1
         /// Get all recurring events and if an
         /// event is expired then set the recurr day
         /// </summary>
-        private void SetRepeatEvent()
+        private async void SetRepeatEvent()
         {
             //List<EventRepeatStat> eventRepeatStats = new List<EventRepeatStat>();
             List<Event> repeatinEvents = new List<Event>(_events.Where(userEvnt => userEvnt.Recurr == true));
@@ -90,24 +91,23 @@ namespace EventPlannerV1
             {
                 DateTime repeatStartDateTime = usrEvnt.StartDateTime.AddDays(1);
                 DateTime repeatEndDateTime = usrEvnt.EndDateTime.AddDays(1);
-                //eventRepeatStats.Add(new EventRepeatStat()
-                //{
-                //    UserEvent = usrEvnt,
-                //    RepeatStartDateTime = repeatStartDateTime,
-                //    RepeatEndDateTime = repeatEndDateTime
-                //});
 
+                // check if the event has ended
                 if ((usrEvnt.StartDateTime < DateTime.Now) && (usrEvnt.EndDateTime < DateTime.Now))
                 {
-                    usrEvnt.StartDateTime = repeatStartDateTime;
-                    usrEvnt.EndDateTime = repeatEndDateTime;
-                    int updateStat = UpdateEvent(usrEvnt);
-                    if (updateStat == 1)
+                    foreach (var duplicateEvent in repeatinEvents)
                     {
-                        MessageBox.Show("An error occured while updating the events list! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        // File log is saved under the UpdateEvent(evt) func
+                        if (usrEvnt.EventTitle != duplicateEvent.EventTitle)
+                        {
+                            // if event ended start repeat for the next day
+                            usrEvnt.StartDateTime = repeatStartDateTime;
+                            usrEvnt.EndDateTime = repeatEndDateTime;
+                            // add as a new event to the db and the xml file
+                            AddNewEvent(usrEvnt);
+                            //Helper.AddEventXmlParser(usrEvnt);
+                            await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(usrEvnt));
+                        }
                     }
-
                 }
             }
 
@@ -158,13 +158,9 @@ namespace EventPlannerV1
             // Switch the Recurr property
             tempEvent.Recurr = !tempEvent.Recurr;
 
-            int updateStat = UpdateEvent(tempEvent);
+            UpdateEvent(tempEvent);
             flowLayoutPanel1.Controls.Clear();
             InitEvents();
-            if (updateStat == 1)
-            {
-                MessageBox.Show("Internal Database Error! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
         }
 
@@ -185,7 +181,7 @@ namespace EventPlannerV1
         /// </summary>
         /// <param name="evnt"></param>
         /// <returns></returns>
-        private int UpdateEvent(Event evnt)
+        private async void UpdateEvent(Event evnt)
         {
             using (var db = new EventContext())
             {
@@ -203,32 +199,38 @@ namespace EventPlannerV1
                     result.Recurr = evnt.Recurr;
                     result.EventNote = evnt.EventNote;
                     db.SaveChanges();
+                    // Write to xml
+                    await System.Threading.Tasks.Task.Run(() => Helper.UpdateEventXmlParser(result));
+
 
                 }
                 catch (Exception ex)
                 {
                     Utilites.Helper.SaveLog(ex);
-                    return 1;
+                    MessageBox.Show("Internal Database Error! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
-            return 0;
         }
 
         /// <summary>
         /// Deletes a event by event ID
         /// </summary>
         /// <param name="EventId"></param>
-        private void DeleteEvent(int EventId)
+        private async void DeleteEvent(int EventId)
         {
             using (var db = new EventContext())
             {
                 var DelEvent = (from userEvent in db.Events
                                   where userEvent.EventId == EventId
                                   select userEvent).FirstOrDefault();
+
                 try
                 {
                     db.Events.Remove(DelEvent);
                     db.SaveChanges();
+                    // Write to xml
+                    await System.Threading.Tasks.Task.Run(() => Helper.RemoveEventXmlParser(DelEvent));
                 }
                 catch (Exception ex)
                 {
@@ -262,6 +264,56 @@ namespace EventPlannerV1
         {
             flowLayoutPanel1.Controls.Clear();
             InitEvents();
+        }
+
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+            
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
+        }
+
+        /// <summary>
+        /// Adds new event to the DB and the XML
+        /// </summary>
+        private async void AddNewEvent(Event newEvent)
+        {
+           
+            using (var db = new EventContext())
+            {
+
+                // check if event type is appointment or task
+                if (newEvent.EventType.Equals("Appointment"))
+                {
+                    newEvent = new Appointment { EventTitle = newEvent.EventTitle, StartDateTime = newEvent.StartDateTime, EndDateTime = newEvent.EndDateTime, ContactId = ((Appointment)newEvent).ContactId, Recurr = newEvent.Recurr, Location = ((Appointment)newEvent).Location, EventNote = newEvent.EventNote, EventType = "Appointment", UserId = newEvent.UserId };
+                }
+                else
+                {
+                    newEvent = new Models.Task { EventTitle = newEvent.EventTitle, StartDateTime = newEvent.StartDateTime, EndDateTime = newEvent.EndDateTime, Recurr = newEvent.Recurr, EventNote = newEvent.EventNote, EventType = "Task", UserId = newEvent.UserId };
+                }
+
+
+                try
+                {
+                    db.Events.Add(newEvent);
+                    db.SaveChanges();
+
+                    // Write to xml
+                    await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(newEvent));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Internal Database Error!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Helper.SaveLog(ex);
+                    return;
+                }
+
+                MessageBox.Show("Event Addition Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+
+            }
+
         }
     }
 }

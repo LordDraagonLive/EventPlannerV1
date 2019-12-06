@@ -97,6 +97,7 @@ namespace EventPlannerV1
             this.profileBtn.TabIndex = 0;
             this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.profileBtn.UseVisualStyleBackColor = false;
+            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // contactsBtn
             // 

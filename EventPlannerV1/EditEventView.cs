@@ -167,7 +167,7 @@ namespace EventPlannerV1
         /// <summary>
         /// Updates the db record with the user edited fields
         /// </summary>
-        private void EditEvent()
+        private async void EditEvent()
         {
             if (MessageBox.Show("Please confirm before proceed"
                    + "\n" + "Do you want to update this event?",
@@ -227,6 +227,9 @@ namespace EventPlannerV1
                                         where userEvent.EventId == resultId
                                         select userEvent).FirstOrDefault();
                         db.Events.Remove(DelEvent);
+                        db.SaveChanges();
+                        //Delete record in the xml file
+                        await System.Threading.Tasks.Task.Run(() => Helper.RemoveEventXmlParser(DelEvent));
 
                         if (selectedContact.Name.Equals("<< No Contact >>"))
                         {
@@ -236,14 +239,6 @@ namespace EventPlannerV1
                         {
                             result = new Appointment { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, ContactId = selectedContact.ContactId, Recurr = repeatEventBool, Location = eventLocation, EventNote = eventNote, EventType = "Appointment", UserId = _user.UserId };
                         }
-                        //db.Events.Add(result);
-                        //((Appointment)result).EventTitle = eventTitle;
-                        //((Appointment)result).StartDateTime = startDateTime;
-                        //((Appointment)result).EndDateTime = endDateTime;
-                        //((Appointment)result).Location = eventLocation;
-                        //((Appointment)result).Recurr = repeatEventBool;
-                        //((Appointment)result).EventNote = eventNote;
-                        //((Appointment)result).EventType = "Appointment";
                     }
                     else
                     {
@@ -252,20 +247,23 @@ namespace EventPlannerV1
                                           where userEvent.EventId == resultId
                                           select userEvent).FirstOrDefault();
                         db.Events.Remove(DelEvent);
+                        db.SaveChanges();
+                        //Delete record in the xml file
+                        await System.Threading.Tasks.Task.Run(() => Helper.RemoveEventXmlParser(DelEvent));
+
                         result = new Models.Task {EventId=resultId, EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Recurr = repeatEventBool, EventNote = eventNote, EventType = "Task", UserId = _user.UserId };
-                        //((Models.Task)(Event)result).EventTitle = eventTitle;
-                        //((Models.Task)result).StartDateTime = startDateTime;
-                        //((Models.Task)result).EndDateTime = endDateTime;
-                        //((Models.Task)result).Recurr = repeatEventBool;
-                        //((Models.Task)result).EventNote = eventNote;
-                        //((Models.Task)result).EventType = "Task";
-                        //db.Events.Add(result);
                     }
+
+
 
                     try
                     {
                         db.Events.Add(result);
                         db.SaveChanges();
+
+                        //Add record in the xml file
+                        await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(result));
+                        
                     }
                     catch (Exception ex)
                     {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -140,7 +141,10 @@ namespace EventPlannerV1
             };
         }
 
-        private void AddNewEvent()
+        /// <summary>
+        /// Adds new event to the DB and the XML
+        /// </summary>
+        private async void AddNewEvent()
         {
             String eventTitle = titleTxt.Text.ToString();
             DateTime startDateTime = startDtPicker.Value;
@@ -210,12 +214,18 @@ namespace EventPlannerV1
                 else
                 {
                     newEvent = new Task { EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Recurr = repeatEventBool, EventNote = eventNote,EventType="Task", UserId = _user.UserId };
+
                 }
-                db.Events.Add(newEvent);
+               
 
                 try
                 {
+                    //db.Database.Log = logInfo => Log(logInfo);
+                    db.Events.Add(newEvent);
                     db.SaveChanges();
+                    //File.AppendAllText("OfflineDb.txt", db.Database.Log.ToString());
+                    // Write to xml
+                    await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(newEvent));
                 }
                 catch (Exception ex)
                 {
@@ -226,10 +236,27 @@ namespace EventPlannerV1
 
                 MessageBox.Show("Event Addition Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+
             }
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name = "logInfo" ></ param >
+        //public static void OfflineDbParser(string logInfo)
+        //{
+        //    File.AppendAllText("OfflineDb.txt", logInfo);
+        //}
+
+
+        /// <summary>
+        /// Handles Add new event btn click
+        /// and calls the add new event func
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addNewEventBtn_Click(object sender, EventArgs e)
         {
             AddNewEvent();
