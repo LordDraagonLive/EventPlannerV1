@@ -65,6 +65,7 @@
             // 
             this.EventTitle.BackColor = System.Drawing.Color.Azure;
             this.EventTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EventTitle.Enabled = false;
             this.EventTitle.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EventTitle.ForeColor = System.Drawing.Color.Navy;
             this.EventTitle.Location = new System.Drawing.Point(6, 8);
@@ -117,6 +118,7 @@
             this.Name = "EventDetailsPanel";
             this.Size = new System.Drawing.Size(745, 39);
             this.Load += new System.EventHandler(this.EventDetailsPanel_Load);
+            this.DoubleClick += new System.EventHandler(this.EventDetailsPanel_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -81,5 +81,14 @@ namespace EventPlannerV1.Utilites
             if (this.RemoveButtonClick != null)
                 RemoveButtonClick(this, e);
         }
+
+        public event EventHandler ControlDoubleClick;
+
+        private void EventDetailsPanel_DoubleClick(object sender, EventArgs e)
+        {
+            //bubble the event up to the parent
+            if (this.ControlDoubleClick != null)
+                ControlDoubleClick(this, e);
+        }
     }
 }
