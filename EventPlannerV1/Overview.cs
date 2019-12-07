@@ -73,11 +73,13 @@ namespace EventPlannerV1
                     eventDetailsPanel.RepeatButtonClick += EventDetailsPanel_RepeatButtonClick;
                     eventDetailsPanel.RemoveButtonClick += EventDetailsPanel_RemoveButtonClick;
                     eventDetailsPanel.EditButtonClick += EventDetailsPanel_EditButtonClick;
+                    eventDetailsPanel.ControlDoubleClick += EventDetailsPanel_ControlDoubleClick;
                     flowLayoutPanel1.Controls.Add(eventDetailsPanel);
                 }
             }
 
         }
+
 
         /// <summary>
         /// Get all recurring events and if an
@@ -114,16 +116,31 @@ namespace EventPlannerV1
 
         }
 
-        /// <summary>
-        /// Struct which holds the event
-        /// repetition data
-        /// </summary>
+        ///// <summary>
+        ///// Struct which holds the event
+        ///// repetition data
+        ///// </summary>
         //struct EventRepeatStat
         //{
         //    public Event UserEvent;
         //    public DateTime RepeatStartDateTime;
         //    public DateTime RepeatEndDateTime;
         //}
+
+        /// <summary>
+        /// Allow user to see an event's
+        /// full details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EventDetailsPanel_ControlDoubleClick(object sender, EventArgs e)
+        {
+            EventDetailsPanel temp = (EventDetailsPanel)sender;
+            Event userEvent = temp.Event;
+
+            EventView eventView = new EventView(userEvent, _user);
+            eventView.ShowDialog(this);
+        }
 
         private void EventDetailsPanel_EditButtonClick(object sender, EventArgs e)
         {
