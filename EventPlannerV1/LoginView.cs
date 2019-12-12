@@ -23,11 +23,12 @@ namespace EventPlannerV1
             Helper.InitXmlSave();
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+        private async void LoginBtn_Click(object sender, EventArgs e)
         {
+            // Get Result from db
+            int LoginStatus = await CheckLogin(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
 
-            int LoginStatus = CheckLogin(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
-
+            //Display appropriate message
             if (LoginStatus == 1)
             {
                 MessageBox.Show("Login Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -47,7 +48,13 @@ namespace EventPlannerV1
             }
         }
 
-        private int CheckLogin(String username, String password)
+        /// <summary>
+        /// Check if user exists and allow login
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        private async Task<int> CheckLogin(String username, String password)
         {
             if (String.IsNullOrWhiteSpace(username) || String.IsNullOrWhiteSpace(password))
             {
@@ -56,7 +63,8 @@ namespace EventPlannerV1
 
             using (var db = new EventContext())
             {
-                var allUsers = from users in db.Users orderby users.Name select users;
+                var allUsers = await System.Threading.Tasks.Task.Run(() => from users in db.Users select users);
+                //var allUsers = from users in db.Users select users;
 
                 foreach (var user in allUsers)
                 {
@@ -66,10 +74,16 @@ namespace EventPlannerV1
                         return 1;
                     }
                 }
+                //await System.Threading.Tasks.Task.Run(() => db.SaveChangesAsync());
             }
             return 2;
         }
 
+        /// <summary>
+        /// redirect user to register user view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NewAcctLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RegisterView registerView = new RegisterView();
