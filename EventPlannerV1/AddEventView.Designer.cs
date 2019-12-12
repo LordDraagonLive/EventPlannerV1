@@ -155,7 +155,7 @@
             this.endDtPicker.CalendarForeColor = System.Drawing.Color.Navy;
             this.endDtPicker.CalendarMonthBackground = System.Drawing.Color.Azure;
             this.endDtPicker.CalendarTitleForeColor = System.Drawing.Color.Navy;
-            this.endDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
+            this.endDtPicker.CustomFormat = "MMMM, dd, yyyy HH:mm";
             this.endDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDtPicker.Location = new System.Drawing.Point(572, 80);
@@ -169,7 +169,7 @@
             this.startDtPicker.CalendarForeColor = System.Drawing.Color.Navy;
             this.startDtPicker.CalendarMonthBackground = System.Drawing.Color.Azure;
             this.startDtPicker.CalendarTitleForeColor = System.Drawing.Color.Navy;
-            this.startDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
+            this.startDtPicker.CustomFormat = "MMMM, dd, yyyy HH:mm";
             this.startDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startDtPicker.Location = new System.Drawing.Point(137, 83);

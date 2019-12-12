@@ -67,7 +67,7 @@
             this.EventTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EventTitle.Enabled = false;
             this.EventTitle.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EventTitle.ForeColor = System.Drawing.Color.Navy;
+            this.EventTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.EventTitle.Location = new System.Drawing.Point(6, 8);
             this.EventTitle.Name = "EventTitle";
             this.EventTitle.ReadOnly = true;
@@ -81,7 +81,7 @@
             this.StartDtPicker.CalendarForeColor = System.Drawing.Color.Navy;
             this.StartDtPicker.CalendarMonthBackground = System.Drawing.Color.Azure;
             this.StartDtPicker.CalendarTitleForeColor = System.Drawing.Color.Navy;
-            this.StartDtPicker.CustomFormat = "MMMM, dd, yyyy hh:mm:ss";
+            this.StartDtPicker.CustomFormat = "MMMM, dd, yyyy HH:mm";
             this.StartDtPicker.Enabled = false;
             this.StartDtPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartDtPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Navy;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.RepeatStatBtn);
             this.Controls.Add(this.StartDtPicker);
             this.Controls.Add(this.EventTitle);

@@ -47,7 +47,7 @@ namespace EventPlannerV1
 
         private void Overview_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace EventPlannerV1
         /// Get all recurring events and if an
         /// event is expired then set the recurr day
         /// </summary>
-        private async void SetRepeatEvent()
+        private void SetRepeatEvent()
         {
             //List<EventRepeatStat> eventRepeatStats = new List<EventRepeatStat>();
             List<Event> repeatinEvents = new List<Event>(_events.Where(userEvnt => userEvnt.Recurr == true));
@@ -97,19 +97,17 @@ namespace EventPlannerV1
                 // check if the event has ended
                 if ((usrEvnt.StartDateTime < DateTime.Now) && (usrEvnt.EndDateTime < DateTime.Now))
                 {
-                    foreach (var duplicateEvent in repeatinEvents)
-                    {
-                        if (usrEvnt.EventTitle != duplicateEvent.EventTitle)
-                        {
-                            // if event ended start repeat for the next day
-                            usrEvnt.StartDateTime = repeatStartDateTime;
-                            usrEvnt.EndDateTime = repeatEndDateTime;
-                            // add as a new event to the db and the xml file
-                            AddNewEvent(usrEvnt);
-                            //Helper.AddEventXmlParser(usrEvnt);
-                            await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(usrEvnt));
-                        }
-                    }
+                    //Update previous recuring events to stop recurring
+                    // In db and the XML file
+                    usrEvnt.Recurr = false;
+                    UpdateEvent(usrEvnt); // update xml is inside this func
+
+                    // if event ended start repeat for the next day
+                    usrEvnt.Recurr = true;
+                    usrEvnt.StartDateTime = repeatStartDateTime;
+                    usrEvnt.EndDateTime = repeatEndDateTime;
+                    // add as a new event to the db and the xml file
+                    AddNewEvent(usrEvnt);
                 }
             }
 
@@ -217,8 +215,10 @@ namespace EventPlannerV1
                     result.EventNote = evnt.EventNote;
                     db.SaveChanges();
                     // Write to xml
-                    await System.Threading.Tasks.Task.Run(() => Helper.UpdateEventXmlParser(result));
 
+                    await System.Threading.Tasks.Task.Run(() => Helper.UpdateEventXmlParser(result));
+                    //await Helper.UpdateEventXmlParser(result);
+                    //Helper.UpdateEventXmlParser(result);
 
                 }
                 catch (Exception ex)
@@ -248,6 +248,8 @@ namespace EventPlannerV1
                     db.SaveChanges();
                     // Write to xml
                     await System.Threading.Tasks.Task.Run(() => Helper.RemoveEventXmlParser(DelEvent));
+                    //await Helper.RemoveEventXmlParser(DelEvent);
+                    //Helper.RemoveEventXmlParser(DelEvent);
                 }
                 catch (Exception ex)
                 {
@@ -318,6 +320,8 @@ namespace EventPlannerV1
 
                     // Write to xml
                     await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(newEvent));
+                    //await Helper.AddEventXmlParser(newEvent);
+                    //Helper.AddEventXmlParser(newEvent);
                 }
                 catch (Exception ex)
                 {
@@ -326,11 +330,24 @@ namespace EventPlannerV1
                     return;
                 }
 
-                MessageBox.Show("Event Addition Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                //MessageBox.Show("Event Addition Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //this.Close();
 
             }
 
+        }
+
+        private void showPredictBtn_Click(object sender, EventArgs e)
+        {
+            PredictionReportView predictionReport = new PredictionReportView(_user);
+            predictionReport.Show();
+            this.Close();
+
+        }
+
+        private void Overview_Load(object sender, EventArgs e)
+        {
+            //InitEvents();
         }
     }
 }

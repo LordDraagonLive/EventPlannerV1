@@ -200,6 +200,12 @@ namespace EventPlannerV1
                     eventTitleTxt.Focus();
                     return;
                 }
+                else if (ValidationStatus == 3)
+                {
+                    MessageBox.Show("Events cannot be in the past!", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    eventTitleTxt.Focus();
+                    return;
+                }
 
                 // Set the Event repetition status
                 if (repeatEvent.Equals("Don't Repeat"))
@@ -229,7 +235,9 @@ namespace EventPlannerV1
                         db.Events.Remove(DelEvent);
                         db.SaveChanges();
                         //Delete record in the xml file
+                        //await Helper.RemoveEventXmlParser(DelEvent);
                         await System.Threading.Tasks.Task.Run(() => Helper.RemoveEventXmlParser(DelEvent));
+                        //Helper.RemoveEventXmlParser(DelEvent);
 
                         if (selectedContact.Name.Equals("<< No Contact >>"))
                         {
@@ -249,7 +257,9 @@ namespace EventPlannerV1
                         db.Events.Remove(DelEvent);
                         db.SaveChanges();
                         //Delete record in the xml file
+                        //await Helper.RemoveEventXmlParser(DelEvent);
                         await System.Threading.Tasks.Task.Run(() => Helper.RemoveEventXmlParser(DelEvent));
+                        //Helper.RemoveEventXmlParser(DelEvent);
 
                         result = new Models.Task {EventId=resultId, EventTitle = eventTitle, StartDateTime = startDateTime, EndDateTime = endDateTime, Recurr = repeatEventBool, EventNote = eventNote, EventType = "Task", UserId = _user.UserId };
                     }
@@ -262,8 +272,11 @@ namespace EventPlannerV1
                         db.SaveChanges();
 
                         //Add record in the xml file
+                        //await Helper.AddEventXmlParser(result);
                         await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(result));
-                        
+                        //Helper.AddEventXmlParser(result);
+
+
                     }
                     catch (Exception ex)
                     {
@@ -337,7 +350,7 @@ namespace EventPlannerV1
                 CalendarForeColor = System.Drawing.Color.Navy,
                 CalendarMonthBackground = System.Drawing.Color.Azure,
                 CalendarTitleForeColor = System.Drawing.Color.Navy,
-                CustomFormat = "MMMM, dd, yyyy hh:mm:ss",
+                CustomFormat = "MMMM, dd, yyyy HH:mm",
                 Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Format = System.Windows.Forms.DateTimePickerFormat.Custom,
                 //ForeColor = System.Drawing.Color.Navy,
@@ -364,7 +377,7 @@ namespace EventPlannerV1
                 CalendarForeColor = System.Drawing.Color.Navy,
                 CalendarMonthBackground = System.Drawing.Color.Azure,
                 CalendarTitleForeColor = System.Drawing.Color.Navy,
-                CustomFormat = "MMMM, dd, yyyy hh:mm:ss",
+                CustomFormat = "MMMM, dd, yyyy HH:mm",
                 Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Format = System.Windows.Forms.DateTimePickerFormat.Custom,
                 //ForeColor = System.Drawing.Color.Navy,
@@ -532,13 +545,10 @@ namespace EventPlannerV1
         /// <returns></returns>
         private int ValidateEvents()
         {
-            if (startsAtDtPicker.Value.ToString().Equals(endsAtDtPicker.Value.ToString()))
-            {
-                if (eventTitleTxt.Text.ToString().Equals("")) { return 2; }
-                else { return 0; }
-            }
-            else if (startsAtDtPicker.Value > endsAtDtPicker.Value) { return 1; }
+            if (startsAtDtPicker.Value.ToString().Equals(endsAtDtPicker.Value.ToString())) { return 1; }
             else if (eventTitleTxt.Text.ToString().Equals("")) { return 2; }
+            else if (startsAtDtPicker.Value > endsAtDtPicker.Value) { return 1; }
+            else if ((startsAtDtPicker.Value < DateTime.Now) || endsAtDtPicker.Value < DateTime.Now) { return 3; } // Check if lesser than DateTime.Now
             else { return 0; }
         }
     }

@@ -172,6 +172,12 @@ namespace EventPlannerV1
                 titleTxt.Focus();
                 return;
             }
+            else if (ValidationStatus == 3)
+            {
+                MessageBox.Show("Events cannot be added in the past!", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                titleTxt.Focus();
+                return;
+            }
 
             // Set the Event repetition status
             if (repeatEvent.Equals("Don't Repeat"))
@@ -226,6 +232,8 @@ namespace EventPlannerV1
                     //File.AppendAllText("OfflineDb.txt", db.Database.Log.ToString());
                     // Write to xml
                     await System.Threading.Tasks.Task.Run(() => Helper.AddEventXmlParser(newEvent));
+                    //await Helper.AddEventXmlParser(newEvent);
+                    //Helper.AddEventXmlParser(newEvent);
                 }
                 catch (Exception ex)
                 {
@@ -268,13 +276,11 @@ namespace EventPlannerV1
         /// <returns></returns>
         private int ValidateEvents()
         {
-            if (startDtPicker.Value.ToString().Equals(endDtPicker.Value.ToString())){
-                if (titleTxt.Text.ToString().Equals("")){return 2;}
-                else{return 0;}
-            }
-            else if (startDtPicker.Value > endDtPicker.Value){return 1;}
+            if (startDtPicker.Value.ToString().Equals(endDtPicker.Value.ToString())) { return 1; }
             else if (titleTxt.Text.ToString().Equals("")) { return 2; }
-            else {return 0;}
+            else if (startDtPicker.Value > endDtPicker.Value) { return 1; }
+            else if ((startDtPicker.Value < DateTime.Now) || endDtPicker.Value < DateTime.Now) { return 3; } // Check if lesser than DateTime.Now
+            else { return 0; }
         }
     }
 }

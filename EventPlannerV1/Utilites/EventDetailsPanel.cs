@@ -53,6 +53,14 @@ namespace EventPlannerV1.Utilites
             if (_event.Recurr) { RepeatStatBtn.BackColor = Color.LightGreen; RepeatStatBtn.ForeColor = Color.DimGray; }
             else { RepeatStatBtn.BackColor = Color.DimGray; RepeatStatBtn.ForeColor = Color.Azure; }
 
+            // Disable repeat and edit btn if the event is in the past
+            if (_event.EndDateTime < DateTime.Now)
+            {
+                //RepeatStatBtn.Enabled = false;
+                this.Controls.Remove(RepeatStatBtn);
+                this.Controls.Remove(EditEventBtn);
+            }
+
         }
 
         public event EventHandler RepeatButtonClick;

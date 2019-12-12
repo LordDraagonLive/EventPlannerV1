@@ -1,4 +1,5 @@
 ﻿using EventPlannerV1.Models;
+using EventPlannerV1.Utilites;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,13 @@ namespace EventPlannerV1
         public LoginView()
         {
             InitializeComponent();
+            // create xml file if not available
+            Helper.InitXmlSave();
         }
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+
             int LoginStatus = CheckLogin(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
 
             if (LoginStatus == 1)
