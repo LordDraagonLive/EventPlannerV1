@@ -46,7 +46,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -58,7 +58,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Navy;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(311, 9);
@@ -71,7 +71,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(53, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 23);
@@ -82,7 +82,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(53, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 23);
@@ -93,7 +93,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Navy;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(53, 199);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 23);
@@ -104,7 +104,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(53, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 23);
@@ -115,7 +115,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label6.Location = new System.Drawing.Point(53, 308);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 23);
@@ -124,8 +124,9 @@
             // 
             // contactNameTxt
             // 
+            this.contactNameTxt.BackColor = System.Drawing.Color.Azure;
             this.contactNameTxt.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactNameTxt.ForeColor = System.Drawing.Color.Navy;
+            this.contactNameTxt.ForeColor = System.Drawing.Color.RoyalBlue;
             this.contactNameTxt.Location = new System.Drawing.Point(316, 82);
             this.contactNameTxt.Name = "contactNameTxt";
             this.contactNameTxt.Size = new System.Drawing.Size(226, 27);
@@ -133,8 +134,9 @@
             // 
             // contactEmailTxt
             // 
+            this.contactEmailTxt.BackColor = System.Drawing.Color.Azure;
             this.contactEmailTxt.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactEmailTxt.ForeColor = System.Drawing.Color.Navy;
+            this.contactEmailTxt.ForeColor = System.Drawing.Color.RoyalBlue;
             this.contactEmailTxt.Location = new System.Drawing.Point(316, 142);
             this.contactEmailTxt.Name = "contactEmailTxt";
             this.contactEmailTxt.Size = new System.Drawing.Size(226, 27);
@@ -142,8 +144,9 @@
             // 
             // contactAddressTxt
             // 
+            this.contactAddressTxt.BackColor = System.Drawing.Color.Azure;
             this.contactAddressTxt.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactAddressTxt.ForeColor = System.Drawing.Color.Navy;
+            this.contactAddressTxt.ForeColor = System.Drawing.Color.RoyalBlue;
             this.contactAddressTxt.Location = new System.Drawing.Point(316, 199);
             this.contactAddressTxt.Name = "contactAddressTxt";
             this.contactAddressTxt.Size = new System.Drawing.Size(226, 27);
@@ -151,8 +154,9 @@
             // 
             // contactTelTxt
             // 
+            this.contactTelTxt.BackColor = System.Drawing.Color.Azure;
             this.contactTelTxt.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactTelTxt.ForeColor = System.Drawing.Color.Navy;
+            this.contactTelTxt.ForeColor = System.Drawing.Color.RoyalBlue;
             this.contactTelTxt.Location = new System.Drawing.Point(316, 258);
             this.contactTelTxt.Name = "contactTelTxt";
             this.contactTelTxt.Size = new System.Drawing.Size(226, 27);
@@ -160,8 +164,9 @@
             // 
             // contactNoteTxt
             // 
+            this.contactNoteTxt.BackColor = System.Drawing.Color.Azure;
             this.contactNoteTxt.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactNoteTxt.ForeColor = System.Drawing.Color.Navy;
+            this.contactNoteTxt.ForeColor = System.Drawing.Color.RoyalBlue;
             this.contactNoteTxt.Location = new System.Drawing.Point(316, 309);
             this.contactNoteTxt.Multiline = true;
             this.contactNoteTxt.Name = "contactNoteTxt";
@@ -170,21 +175,27 @@
             // 
             // addContactBtn
             // 
-            this.addContactBtn.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addContactBtn.ForeColor = System.Drawing.Color.Navy;
+            this.addContactBtn.AutoSize = true;
+            this.addContactBtn.BackColor = System.Drawing.Color.Azure;
+            this.addContactBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.addContactBtn.FlatAppearance.BorderSize = 2;
+            this.addContactBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addContactBtn.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addContactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.addContactBtn.Location = new System.Drawing.Point(316, 445);
             this.addContactBtn.Name = "addContactBtn";
-            this.addContactBtn.Size = new System.Drawing.Size(226, 34);
+            this.addContactBtn.Size = new System.Drawing.Size(226, 38);
             this.addContactBtn.TabIndex = 17;
             this.addContactBtn.Text = "Add";
-            this.addContactBtn.UseVisualStyleBackColor = true;
+            this.addContactBtn.UseVisualStyleBackColor = false;
             this.addContactBtn.Click += new System.EventHandler(this.addContactBtn_Click);
             // 
             // AddContactView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 491);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.ClientSize = new System.Drawing.Size(800, 506);
             this.Controls.Add(this.addContactBtn);
             this.Controls.Add(this.contactNoteTxt);
             this.Controls.Add(this.contactTelTxt);

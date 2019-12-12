@@ -337,7 +337,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(12, 86),
                 Name = "startsAtLabel",
                 Size = new System.Drawing.Size(77, 18),
@@ -347,9 +347,9 @@ namespace EventPlannerV1
             startsAtDtPicker = new DateTimePicker
             {
                 CalendarFont = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                CalendarForeColor = System.Drawing.Color.Navy,
+                CalendarForeColor = ColorTranslator.FromHtml("#071A40"),
                 CalendarMonthBackground = System.Drawing.Color.Azure,
-                CalendarTitleForeColor = System.Drawing.Color.Navy,
+                CalendarTitleForeColor = ColorTranslator.FromHtml("#071A40"),
                 CustomFormat = "MMMM, dd, yyyy HH:mm",
                 Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Format = System.Windows.Forms.DateTimePickerFormat.Custom,
@@ -364,7 +364,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(482, 86),
                 Name = "endsAtLabel",
                 Size = new System.Drawing.Size(77, 18),
@@ -374,9 +374,9 @@ namespace EventPlannerV1
             endsAtDtPicker = new DateTimePicker
             {
                 CalendarFont = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                CalendarForeColor = System.Drawing.Color.Navy,
+                CalendarForeColor = ColorTranslator.FromHtml("#071A40"),
                 CalendarMonthBackground = System.Drawing.Color.Azure,
-                CalendarTitleForeColor = System.Drawing.Color.Navy,
+                CalendarTitleForeColor = ColorTranslator.FromHtml("#071A40"),
                 CustomFormat = "MMMM, dd, yyyy HH:mm",
                 Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Format = System.Windows.Forms.DateTimePickerFormat.Custom,
@@ -391,7 +391,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(12, 266),
                 Name = "LocationLbl",
                 Size = new System.Drawing.Size(77, 18),
@@ -412,7 +412,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(12, 310),
                 Name = "contactLbl",
                 Size = new System.Drawing.Size(71, 18),
@@ -434,7 +434,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(12, 266),
                 Name = "eventNoteLbl",
                 Size = new System.Drawing.Size(77, 18),
@@ -456,7 +456,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(12, 184),
                 Name = "eventRepeatLbl",
                 Size = new System.Drawing.Size(118, 18),
@@ -482,7 +482,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(12, 229),
                 Name = "eventTypeLbl",
                 Size = new System.Drawing.Size(97, 18),
@@ -492,7 +492,7 @@ namespace EventPlannerV1
             appointRadBtn = new RadioButton
             {
                 AutoSize = true,
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(271, 231),
                 Name = "appointRadBtn",
                 Size = new System.Drawing.Size(84, 17),
@@ -504,7 +504,7 @@ namespace EventPlannerV1
             taskRadBtn = new RadioButton
             {
                 AutoSize = true,
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(137, 231),
                 Name = "taskRadBtn",
                 Size = new System.Drawing.Size(49, 17),
@@ -518,7 +518,7 @@ namespace EventPlannerV1
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                ForeColor = System.Drawing.Color.Navy,
+                ForeColor = ColorTranslator.FromHtml("#071A40"),
                 Location = new System.Drawing.Point(12, 135),
                 Name = "eventTitleLbl",
                 Size = new System.Drawing.Size(97, 18),

@@ -36,7 +36,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -47,7 +47,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Navy;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(338, 9);
@@ -65,7 +65,7 @@
             this.editEventBtn.FlatAppearance.BorderSize = 2;
             this.editEventBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editEventBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editEventBtn.ForeColor = System.Drawing.Color.Navy;
+            this.editEventBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.editEventBtn.Location = new System.Drawing.Point(343, 414);
             this.editEventBtn.Name = "editEventBtn";
             this.editEventBtn.Size = new System.Drawing.Size(155, 39);
@@ -78,6 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 514);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.editEventBtn);

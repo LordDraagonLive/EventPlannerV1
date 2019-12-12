@@ -43,10 +43,10 @@ namespace EventPlannerV1
             contactsDtGrd.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             contactsDtGrd.AutoGenerateColumns = true;
             contactsDtGrd.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
-            contactsDtGrd.ColumnHeadersDefaultCellStyle.ForeColor = Color.Azure;
+            contactsDtGrd.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             contactsDtGrd.EnableHeadersVisualStyles = false;
             contactsDtGrd.ColumnHeadersVisible = false;
-            contactsDtGrd.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F0F0F0");
+            contactsDtGrd.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#D5EFF2");
             //contactsDtGrd.AlternatingRowsDefaultCellStyle.ForeColor = Color.Azure;
 
             //for (int i = 0; i < contactsDtGrd.Columns.Count; i++)

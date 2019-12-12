@@ -56,7 +56,7 @@
             // 
             this.usernameTxt.Enabled = false;
             this.usernameTxt.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTxt.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.usernameTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(89)))));
             this.usernameTxt.Location = new System.Drawing.Point(334, 168);
             this.usernameTxt.Name = "usernameTxt";
             this.usernameTxt.Size = new System.Drawing.Size(319, 23);
@@ -77,7 +77,7 @@
             // 
             this.nameTxt.Enabled = false;
             this.nameTxt.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTxt.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.nameTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(89)))));
             this.nameTxt.Location = new System.Drawing.Point(334, 216);
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(319, 23);
@@ -97,7 +97,7 @@
             // passwordTxt
             // 
             this.passwordTxt.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTxt.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.passwordTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(89)))));
             this.passwordTxt.Location = new System.Drawing.Point(334, 262);
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.PasswordChar = '*';
@@ -118,7 +118,7 @@
             // conPasswordTxt
             // 
             this.conPasswordTxt.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conPasswordTxt.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.conPasswordTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(89)))));
             this.conPasswordTxt.Location = new System.Drawing.Point(334, 308);
             this.conPasswordTxt.Name = "conPasswordTxt";
             this.conPasswordTxt.PasswordChar = '*';

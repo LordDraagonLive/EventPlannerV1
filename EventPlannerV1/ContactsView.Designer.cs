@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.contactsBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.updateContactBtn = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contactsDtGrd = new System.Windows.Forms.DataGridView();
-            this.backBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDtGrd)).BeginInit();
@@ -55,7 +55,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Navy;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(370, 9);
@@ -66,7 +66,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.contactsBtn);
             this.panel1.Controls.Add(this.label1);
@@ -75,6 +75,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(889, 46);
             this.panel1.TabIndex = 5;
+            // 
+            // backBtn
+            // 
+            this.backBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.backBtn.AutoSize = true;
+            this.backBtn.BackColor = System.Drawing.Color.Azure;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backBtn.FlatAppearance.BorderSize = 2;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
+            this.backBtn.Location = new System.Drawing.Point(12, 9);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(101, 29);
+            this.backBtn.TabIndex = 9;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // contactsBtn
             // 
@@ -85,7 +103,7 @@
             this.contactsBtn.FlatAppearance.BorderSize = 2;
             this.contactsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.contactsBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactsBtn.ForeColor = System.Drawing.Color.Navy;
+            this.contactsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.contactsBtn.Location = new System.Drawing.Point(776, 9);
             this.contactsBtn.Name = "contactsBtn";
             this.contactsBtn.Size = new System.Drawing.Size(101, 29);
@@ -116,22 +134,25 @@
             // 
             // updateContactBtn
             // 
+            this.updateContactBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.updateContactBtn.Enabled = false;
-            this.updateContactBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateContactBtn.ForeColor = System.Drawing.Color.Navy;
+            this.updateContactBtn.FlatAppearance.BorderSize = 2;
+            this.updateContactBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateContactBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateContactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.updateContactBtn.Location = new System.Drawing.Point(84, 406);
             this.updateContactBtn.Name = "updateContactBtn";
             this.updateContactBtn.Size = new System.Drawing.Size(226, 41);
             this.updateContactBtn.TabIndex = 26;
             this.updateContactBtn.Text = "Update";
-            this.updateContactBtn.UseVisualStyleBackColor = true;
+            this.updateContactBtn.UseVisualStyleBackColor = false;
             this.updateContactBtn.Click += new System.EventHandler(this.updateContactBtn_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label6.Location = new System.Drawing.Point(7, 280);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 18);
@@ -193,7 +214,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(7, 219);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 18);
@@ -204,7 +225,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Navy;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(7, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(142, 18);
@@ -215,7 +236,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(7, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 18);
@@ -226,7 +247,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(7, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 18);
@@ -240,15 +261,15 @@
             this.contactsDtGrd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.contactsDtGrd.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.contactsDtGrd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.contactsDtGrd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.contactsDtGrd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.contactsDtGrd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contactsDtGrd.Location = new System.Drawing.Point(12, 82);
             this.contactsDtGrd.Name = "contactsDtGrd";
@@ -257,28 +278,11 @@
             this.contactsDtGrd.TabIndex = 8;
             this.contactsDtGrd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contactsDtGrd_CellClick);
             // 
-            // backBtn
-            // 
-            this.backBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.backBtn.AutoSize = true;
-            this.backBtn.BackColor = System.Drawing.Color.Azure;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.backBtn.FlatAppearance.BorderSize = 2;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.backBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.ForeColor = System.Drawing.Color.Navy;
-            this.backBtn.Location = new System.Drawing.Point(12, 9);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(101, 29);
-            this.backBtn.TabIndex = 9;
-            this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
             // ContactsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(889, 518);
             this.Controls.Add(this.contactsDtGrd);
             this.Controls.Add(this.panel2);
