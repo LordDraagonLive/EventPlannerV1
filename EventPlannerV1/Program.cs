@@ -17,8 +17,6 @@ namespace EventPlannerV1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // create xml file if not available
-            Helper.InitXmlSave();
             Application.Run(new LoginView());
         }
     }
