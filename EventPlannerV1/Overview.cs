@@ -287,10 +287,9 @@ namespace EventPlannerV1
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            
-            LoginView loginView = new LoginView();
-            loginView.Show();
-            this.Close();
+
+            ProfileView profileView = new ProfileView(_user);
+            profileView.ShowDialog();
         }
 
         /// <summary>
@@ -329,10 +328,6 @@ namespace EventPlannerV1
                     Helper.SaveLog(ex);
                     return;
                 }
-
-                //MessageBox.Show("Event Addition Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
-
             }
 
         }
@@ -348,6 +343,13 @@ namespace EventPlannerV1
         private void Overview_Load(object sender, EventArgs e)
         {
             //InitEvents();
+        }
+
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
         }
     }
 }

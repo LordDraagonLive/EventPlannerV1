@@ -142,6 +142,12 @@
     <Compile Include="PredictionReportView.Designer.cs">
       <DependentUpon>PredictionReportView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileView.Designer.cs">
+      <DependentUpon>ProfileView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterView.cs">
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PredictionReportView.resx">
       <DependentUpon>PredictionReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileView.resx">
+      <DependentUpon>ProfileView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

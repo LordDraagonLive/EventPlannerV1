@@ -34,7 +34,6 @@ namespace EventPlannerV1
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.profileBtn = new System.Windows.Forms.Button();
             this.contactsBtn = new System.Windows.Forms.Button();
             this.showPredictBtn = new System.Windows.Forms.Button();
             this.addEventBtn = new System.Windows.Forms.Button();
@@ -44,6 +43,8 @@ namespace EventPlannerV1
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.logOutBtn = new System.Windows.Forms.Button();
+            this.profileBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,6 +53,7 @@ namespace EventPlannerV1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.logOutBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -66,7 +68,7 @@ namespace EventPlannerV1
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Location = new System.Drawing.Point(374, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 29);
             this.label1.TabIndex = 3;
@@ -82,24 +84,6 @@ namespace EventPlannerV1
             this.panel3.Size = new System.Drawing.Size(201, 54);
             this.panel3.TabIndex = 0;
             // 
-            // profileBtn
-            // 
-            this.profileBtn.AutoSize = true;
-            this.profileBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
-            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.profileBtn.FlatAppearance.BorderSize = 2;
-            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
-            this.profileBtn.Location = new System.Drawing.Point(126, 0);
-            this.profileBtn.Name = "profileBtn";
-            this.profileBtn.Size = new System.Drawing.Size(63, 54);
-            this.profileBtn.TabIndex = 0;
-            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.profileBtn.UseVisualStyleBackColor = false;
-            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
-            // 
             // contactsBtn
             // 
             this.contactsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -114,7 +98,7 @@ namespace EventPlannerV1
             this.contactsBtn.Margin = new System.Windows.Forms.Padding(10);
             this.contactsBtn.Name = "contactsBtn";
             this.contactsBtn.Size = new System.Drawing.Size(155, 37);
-            this.contactsBtn.TabIndex = 1;
+            this.contactsBtn.TabIndex = 3;
             this.contactsBtn.Text = "Contacts";
             this.contactsBtn.UseVisualStyleBackColor = false;
             this.contactsBtn.Click += new System.EventHandler(this.contactsBtn_Click);
@@ -132,7 +116,7 @@ namespace EventPlannerV1
             this.showPredictBtn.Location = new System.Drawing.Point(802, 426);
             this.showPredictBtn.Name = "showPredictBtn";
             this.showPredictBtn.Size = new System.Drawing.Size(155, 39);
-            this.showPredictBtn.TabIndex = 3;
+            this.showPredictBtn.TabIndex = 4;
             this.showPredictBtn.Text = "Monthly Prediction";
             this.showPredictBtn.UseVisualStyleBackColor = false;
             this.showPredictBtn.Click += new System.EventHandler(this.showPredictBtn_Click);
@@ -149,7 +133,7 @@ namespace EventPlannerV1
             this.addEventBtn.Location = new System.Drawing.Point(802, 124);
             this.addEventBtn.Name = "addEventBtn";
             this.addEventBtn.Size = new System.Drawing.Size(155, 38);
-            this.addEventBtn.TabIndex = 4;
+            this.addEventBtn.TabIndex = 2;
             this.addEventBtn.Text = "Add Event";
             this.addEventBtn.UseVisualStyleBackColor = false;
             this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
@@ -166,7 +150,7 @@ namespace EventPlannerV1
             this.startDtPicker.Location = new System.Drawing.Point(171, 75);
             this.startDtPicker.Name = "startDtPicker";
             this.startDtPicker.Size = new System.Drawing.Size(218, 21);
-            this.startDtPicker.TabIndex = 6;
+            this.startDtPicker.TabIndex = 0;
             this.startDtPicker.Value = new System.DateTime(2019, 11, 3, 8, 26, 31, 679);
             this.startDtPicker.ValueChanged += new System.EventHandler(this.startDtPicker_ValueChanged);
             // 
@@ -181,7 +165,7 @@ namespace EventPlannerV1
             this.endDtPicker.Location = new System.Drawing.Point(566, 75);
             this.endDtPicker.Name = "endDtPicker";
             this.endDtPicker.Size = new System.Drawing.Size(216, 21);
-            this.endDtPicker.TabIndex = 7;
+            this.endDtPicker.TabIndex = 1;
             this.endDtPicker.Value = new System.DateTime(2020, 1, 3, 8, 26, 31, 682);
             this.endDtPicker.ValueChanged += new System.EventHandler(this.endDtPicker_ValueChanged);
             // 
@@ -225,6 +209,41 @@ namespace EventPlannerV1
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(765, 430);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // logOutBtn
+            // 
+            this.logOutBtn.AutoSize = true;
+            this.logOutBtn.BackColor = System.Drawing.Color.Azure;
+            this.logOutBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.logOutBtn.FlatAppearance.BorderSize = 2;
+            this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutBtn.ForeColor = System.Drawing.Color.IndianRed;
+            this.logOutBtn.Location = new System.Drawing.Point(15, 9);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(71, 38);
+            this.logOutBtn.TabIndex = 6;
+            this.logOutBtn.Text = "Log Out";
+            this.logOutBtn.UseVisualStyleBackColor = false;
+            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
+            // 
+            // profileBtn
+            // 
+            this.profileBtn.AutoSize = true;
+            this.profileBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
+            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.profileBtn.FlatAppearance.BorderSize = 2;
+            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
+            this.profileBtn.Location = new System.Drawing.Point(126, 0);
+            this.profileBtn.Name = "profileBtn";
+            this.profileBtn.Size = new System.Drawing.Size(63, 54);
+            this.profileBtn.TabIndex = 5;
+            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.profileBtn.UseVisualStyleBackColor = false;
+            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // Overview
             // 
@@ -274,5 +293,6 @@ namespace EventPlannerV1
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button logOutBtn;
     }
 }
