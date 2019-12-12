@@ -32,8 +32,10 @@ namespace EventPlannerV1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Overview));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.logOutBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.profileBtn = new System.Windows.Forms.Button();
             this.contactsBtn = new System.Windows.Forms.Button();
             this.showPredictBtn = new System.Windows.Forms.Button();
             this.addEventBtn = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@ namespace EventPlannerV1
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.logOutBtn = new System.Windows.Forms.Button();
-            this.profileBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,6 +61,23 @@ namespace EventPlannerV1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(969, 54);
             this.panel1.TabIndex = 0;
+            // 
+            // logOutBtn
+            // 
+            this.logOutBtn.AutoSize = true;
+            this.logOutBtn.BackColor = System.Drawing.Color.Azure;
+            this.logOutBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.logOutBtn.FlatAppearance.BorderSize = 2;
+            this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutBtn.ForeColor = System.Drawing.Color.IndianRed;
+            this.logOutBtn.Location = new System.Drawing.Point(15, 9);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(71, 38);
+            this.logOutBtn.TabIndex = 6;
+            this.logOutBtn.Text = "Log Out";
+            this.logOutBtn.UseVisualStyleBackColor = false;
+            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
             // label1
             // 
@@ -83,6 +100,24 @@ namespace EventPlannerV1
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(201, 54);
             this.panel3.TabIndex = 0;
+            // 
+            // profileBtn
+            // 
+            this.profileBtn.AutoSize = true;
+            this.profileBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
+            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.profileBtn.FlatAppearance.BorderSize = 2;
+            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
+            this.profileBtn.Location = new System.Drawing.Point(126, 0);
+            this.profileBtn.Name = "profileBtn";
+            this.profileBtn.Size = new System.Drawing.Size(63, 54);
+            this.profileBtn.TabIndex = 5;
+            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.profileBtn.UseVisualStyleBackColor = false;
+            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // contactsBtn
             // 
@@ -210,41 +245,6 @@ namespace EventPlannerV1
             this.flowLayoutPanel1.Size = new System.Drawing.Size(765, 430);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // logOutBtn
-            // 
-            this.logOutBtn.AutoSize = true;
-            this.logOutBtn.BackColor = System.Drawing.Color.Azure;
-            this.logOutBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.logOutBtn.FlatAppearance.BorderSize = 2;
-            this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logOutBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOutBtn.ForeColor = System.Drawing.Color.IndianRed;
-            this.logOutBtn.Location = new System.Drawing.Point(15, 9);
-            this.logOutBtn.Name = "logOutBtn";
-            this.logOutBtn.Size = new System.Drawing.Size(71, 38);
-            this.logOutBtn.TabIndex = 6;
-            this.logOutBtn.Text = "Log Out";
-            this.logOutBtn.UseVisualStyleBackColor = false;
-            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
-            // 
-            // profileBtn
-            // 
-            this.profileBtn.AutoSize = true;
-            this.profileBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.profileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profileBtn.BackgroundImage")));
-            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.profileBtn.FlatAppearance.BorderSize = 2;
-            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileBtn.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
-            this.profileBtn.Location = new System.Drawing.Point(126, 0);
-            this.profileBtn.Name = "profileBtn";
-            this.profileBtn.Size = new System.Drawing.Size(63, 54);
-            this.profileBtn.TabIndex = 5;
-            this.profileBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.profileBtn.UseVisualStyleBackColor = false;
-            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
-            // 
             // Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +261,7 @@ namespace EventPlannerV1
             this.Controls.Add(this.contactsBtn);
             this.Controls.Add(this.addEventBtn);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Overview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

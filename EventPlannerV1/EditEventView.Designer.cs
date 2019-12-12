@@ -84,7 +84,7 @@
             this.Controls.Add(this.editEventBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditEventView";
-            this.Text = "EditEventView";
+            this.Text = "Edit Event";
             this.Load += new System.EventHandler(this.EditEventView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

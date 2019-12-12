@@ -198,7 +198,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(26)))), ((int)(((byte)(64)))));
             this.label7.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(309, 9);
+            this.label7.Location = new System.Drawing.Point(333, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(126, 29);
             this.label7.TabIndex = 3;
