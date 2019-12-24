@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace EventPlannerV1
         public RegisterView()
         {
             InitializeComponent();
+            this.Controls.Remove(this.pictureBox1);
         }
 
         /// <summary>
@@ -40,23 +42,29 @@ namespace EventPlannerV1
             Application.Exit();
         }
 
-        private void RegisterBtn_Click(object sender, EventArgs e)
+        private async void RegisterBtn_Click(object sender, EventArgs e)
         {
+            this.Controls.Add(this.pictureBox1);
+            this.pictureBox1.BringToFront();
             // get all vars
             String fullName = nameTxt.Text.ToString();
             String username = usernameTxt.Text.ToString();
             String password = passwordTxt.Text.ToString();
             String confirmPassword = confirmTxt.Text.ToString();
 
-            RegisterStatus statusMsg = RegisterUser(fullName, username,password, confirmPassword);
+            Thread.Sleep(2000);
+
+            RegisterStatus statusMsg = await RegisterUser(fullName, username,password, confirmPassword);
 
             if (statusMsg.Error == true)
             {
+                this.Controls.Remove(this.pictureBox1);
                 MessageBox.Show(statusMsg.Message,"Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 nameTxt.Focus();
             }
             else
             {
+                this.Controls.Remove(this.pictureBox1);
                 MessageBox.Show(statusMsg.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoginView loginView = new LoginView();
                 this.Hide();
@@ -89,7 +97,7 @@ namespace EventPlannerV1
         /// <param name="password"></param>
         /// <param name="confirmPassword"></param>
         /// <returns></returns>
-        private RegisterStatus RegisterUser(String fullName, String username, String password, String confirmPassword)
+        private async Task<RegisterStatus> RegisterUser(String fullName, String username, String password, String confirmPassword)
         {
             RegisterStatus registerStatus;
 
@@ -116,7 +124,9 @@ namespace EventPlannerV1
                 }
 
                 // Get all users in db and validate
-                var allUsersQuery = from users in db.Users orderby users.Name select users;
+                //var allUsersQuery = from users in db.Users select users;
+                var allUsersQuery = await System.Threading.Tasks.Task.Run(() => from users in db.Users select users);
+
 
                 foreach (var reguser in allUsersQuery)
                 {
@@ -179,6 +189,5 @@ namespace EventPlannerV1
             public bool Error;
 
         }
-
     }
 }
