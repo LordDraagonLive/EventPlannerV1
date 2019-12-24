@@ -147,6 +147,12 @@ namespace EventPlannerV1.Utilites
                                                       && (usrEventXml.Element("EventId").Value.Equals(userEvent.EventId.ToString()))
                                                       select usrEventXml).FirstOrDefault();
 
+                if (selectedNode is null)
+                {
+                    SaveLog(new NullReferenceException());
+                    return;
+                }
+
                 if (userEvent.GetType() == typeof(Appointment))
                 {
                     selectedNode.Element("EventTitle").SetValue(((Appointment)userEvent).EventTitle);
