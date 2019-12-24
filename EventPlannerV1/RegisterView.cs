@@ -52,8 +52,6 @@ namespace EventPlannerV1
             String password = passwordTxt.Text.ToString();
             String confirmPassword = confirmTxt.Text.ToString();
 
-            Thread.Sleep(2000);
-
             RegisterStatus statusMsg = await RegisterUser(fullName, username,password, confirmPassword);
 
             if (statusMsg.Error == true)
