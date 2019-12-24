@@ -83,6 +83,16 @@ namespace EventPlannerV1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap big_loading_gif {
+            get {
+                object obj = ResourceManager.GetObject("big_loading_gif", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap contacts_512 {
             get {
                 object obj = ResourceManager.GetObject("contacts_512", resourceCulture);
@@ -116,6 +126,16 @@ namespace EventPlannerV1.Properties {
         internal static System.Drawing.Bitmap iconspace_Planner_512 {
             get {
                 object obj = ResourceManager.GetObject("iconspace_Planner_512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading {
+            get {
+                object obj = ResourceManager.GetObject("loading", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

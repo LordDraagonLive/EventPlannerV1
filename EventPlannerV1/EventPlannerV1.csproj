@@ -249,6 +249,7 @@
     <None Include="Resources\LoginHeader.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\loading.gif" />
     <None Include="Resources\remove.png" />
     <None Include="Resources\update-icon.png" />
     <None Include="Resources\download.png" />
@@ -256,6 +257,7 @@
     <None Include="Resources\contacts-512.png" />
     <None Include="Resources\delete-button-png-17.png" />
     <None Include="Resources\edit-button.png" />
+    <None Include="Resources\big-loading-gif.gif" />
     <Content Include="Resources\iconspace_planner_51_o9HXY.ico" />
     <None Include="Resources\profile-icon-white-9.jpg" />
     <None Include="Resources\white-profile-icon-10.jpg" />

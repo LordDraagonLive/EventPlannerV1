@@ -21,16 +21,20 @@ namespace EventPlannerV1
             InitializeComponent();
             // create xml file if not available
             Helper.InitXmlSave();
+            this.Controls.Remove(this.pictureBox1);
         }
 
         private async void LoginBtn_Click(object sender, EventArgs e)
         {
+            this.Controls.Add(this.pictureBox1);
+            this.pictureBox1.BringToFront();
             // Get Result from db
             int LoginStatus = await CheckLogin(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
 
             //Display appropriate message
             if (LoginStatus == 1)
             {
+                this.Controls.Remove(this.pictureBox1);
                 MessageBox.Show("Login Successful!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Overview overview = new Overview(_user);
                 this.Hide();
@@ -38,11 +42,13 @@ namespace EventPlannerV1
             }
             else if(LoginStatus == 2)
             {
+                this.Controls.Remove(this.pictureBox1);
                 MessageBox.Show("Login Failed! Please Check username and password", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);                
                 usernameTxt.Focus();
             }
             else if (LoginStatus == 0)
             {
+                this.Controls.Remove(this.pictureBox1);
                 MessageBox.Show("Username and Password cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 usernameTxt.Focus();
             }
