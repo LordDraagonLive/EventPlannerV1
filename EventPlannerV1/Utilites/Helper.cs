@@ -161,7 +161,14 @@ namespace EventPlannerV1.Utilites
                     selectedNode.Element("Recurr").SetValue(((Appointment)userEvent).Recurr);
                     selectedNode.Element("EventNote").SetValue(((Appointment)userEvent).EventNote);
                     selectedNode.Element("Location").SetValue(((Appointment)userEvent).Location);
-                    selectedNode.Element("ContactId").SetValue(((Appointment)userEvent).ContactId);
+                    try
+                    {
+                        selectedNode.Element("ContactId").SetValue(((Appointment)userEvent).ContactId);
+                    }
+                    catch (NullReferenceException)
+                    {
+                        selectedNode.Element("ContactId").SetValue("<< No Contact >>");
+                    }
                     selectedNode.Element("EventType").SetValue(((Appointment)userEvent).EventType);
 
                 }
