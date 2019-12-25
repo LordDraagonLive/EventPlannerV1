@@ -48,7 +48,15 @@ namespace EventPlannerV1
             if (_userEvent.GetType()==typeof(Appointment))
             {
                 eventTypeTxt.Text = ((Appointment)_userEvent).EventType;
-                contactTxt.Text = GetContact(((Appointment)_userEvent).ContactId).Name;
+                try
+                {
+                    contactTxt.Text = GetContact(((Appointment)_userEvent).ContactId).Name;
+
+                }
+                catch (NullReferenceException)
+                {
+                    contactTxt.Text = "<< No Contact >>";
+                }
                 locationTxt.Text = ((Appointment)_userEvent).Location;
             }
             else if (_userEvent.GetType() == typeof(Models.Task))

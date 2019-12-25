@@ -82,10 +82,13 @@ namespace EventPlannerV1
                     if (((Appointment)_userEvent).ContactId != 0)
                     {
                         int? userEventContactId = ((Appointment)_userEvent).ContactId;
-                        Contact defaultContact = userContacts.Where(contact => contact.ContactId == userEventContactId).FirstOrDefault();
+                        if (userEventContactId!=null)
+                        {
+                            Contact defaultContact = userContacts.Where(contact => contact.ContactId == userEventContactId).FirstOrDefault();
 
-                        dropDownContacts.Remove(defaultContact);
-                        dropDownContacts.Insert(0, defaultContact);
+                            dropDownContacts.Remove(defaultContact);
+                            dropDownContacts.Insert(0, defaultContact);
+                        }
                     }
                 }
 
