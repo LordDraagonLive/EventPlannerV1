@@ -343,6 +343,8 @@ namespace EventPlannerV1
         private void Overview_Load(object sender, EventArgs e)
         {
             //InitEvents();
+            startDtPicker.Value = DateTime.Today.AddMonths(-1);
+            endDtPicker.Value = DateTime.Today.AddMonths(+1);
         }
 
         private void logOutBtn_Click(object sender, EventArgs e)
